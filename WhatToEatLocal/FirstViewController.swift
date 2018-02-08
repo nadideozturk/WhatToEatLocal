@@ -10,7 +10,7 @@ import UIKit
 
 class FirstViewController: UIViewController {
 
-    override func viewDidLoad() {
+    /*override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -18,8 +18,13 @@ class FirstViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    } */
+
+    @IBAction func onGetTapped(_ sender: Any) {
+        
     }
-
-
+    
+    @IBAction func onPostTapped(_ sender: Any) {
+    }
 }
 

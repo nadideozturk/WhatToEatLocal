@@ -12,36 +12,26 @@ import os.log
 
 class DataAccessSingleton {
     static let sharedDataContainer = DataAccessSingleton()
-    // Shared Data
+    // MARK: PROPERTIES
     var meals = [Meal]()
+    
     init() {
-        // Read singleton object from archive
-        // Load any saved meals, otherwise load sample data.
-        if let savedMeals = loadMeals() {
-            meals += savedMeals
-        }
-        else {
-            // Load the sample data.
-            loadSampleMeals()
-        }
+        //loadMeals()
     }
     
-    //MARK: Private Methods
-    private func loadMeals() -> [Meal]?  {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: Meal.ArchiveURL.path) as? [Meal]
-    }
+    
     
     private func saveMeals() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(meals, toFile: Meal.ArchiveURL.path)
+        /*let isSuccessfulSave = true;
         if isSuccessfulSave {
             os_log("Meals successfully saved.", log: OSLog.default, type: .debug)
         } else {
             os_log("Failed to save meals...", log: OSLog.default, type: .error)
-        }
+        }*/
     }
     
     private func loadSampleMeals(){
-        let photo1 = UIImage(named: "Meal1")
+       /* let photo1 = UIImage(named: "Meal1")
         let photo2 = UIImage(named: "Meal2")
         let photo3 = UIImage(named: "Meal3")
         
@@ -57,6 +47,6 @@ class DataAccessSingleton {
             fatalError("Unable to instantiate meal2")
         }
         
-        meals += [meal1, meal2, meal3]
+        meals += [meal1, meal2, meal3] */
     }
 }

@@ -134,7 +134,7 @@ class HomeMadeMealViewController: UIViewController, UITextFieldDelegate, UIImage
     private func submitNewMeal(meal: Meal, completion:((Error?) -> Void)?){
         var urlComponents = URLComponents()
         urlComponents.scheme = "http"
-        urlComponents.host = "localhost"
+        urlComponents.host = "ec2-34-209-47-4.us-west-2.compute.amazonaws.com"
         urlComponents.port = 8080
         urlComponents.path = "/homemademeals"
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }

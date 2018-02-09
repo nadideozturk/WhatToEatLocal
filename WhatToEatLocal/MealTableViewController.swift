@@ -98,7 +98,7 @@ class MealTableViewController: UITableViewController {
     }
     */
     private func loadMeals(){
-        guard let url = URL(string: "http://localhost:8080/homemademeals") else {
+        guard let url = URL(string: "http://ec2-34-209-47-4.us-west-2.compute.amazonaws.com:8080/homemademeals") else {
             return
         }
         let session = URLSession.shared

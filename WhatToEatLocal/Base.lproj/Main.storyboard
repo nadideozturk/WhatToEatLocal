@@ -196,8 +196,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="kHg-Ta-zGd">
                             <connections>
-                                <action selector="saveNewMeal:" destination="y7b-QR-F6V" id="eKn-Tu-oJa"/>
-                                <segue destination="tES-2t-bwc" kind="unwind" unwindAction="unwindToMealListWithSender:" id="03M-Fr-wRa"/>
+                                <action selector="saveMeal:" destination="y7b-QR-F6V" id="TXk-0K-Jy8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -207,6 +206,7 @@
                         <outlet property="durationTimeInMinTxtField" destination="Dyu-Zk-Fja" id="R3s-LA-gpL"/>
                         <outlet property="mealNameTxtField" destination="22p-Kl-aZv" id="EF4-3n-Sxv"/>
                         <outlet property="saveButton" destination="kHg-Ta-zGd" id="hlO-QK-SWa"/>
+                        <segue destination="tES-2t-bwc" kind="unwind" identifier="unwindToMealListSegue" unwindAction="unwindToMealListWithSender:" id="wPr-pd-Mct"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4kN-hg-lgZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

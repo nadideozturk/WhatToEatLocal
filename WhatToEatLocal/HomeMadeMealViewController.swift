@@ -104,15 +104,8 @@ class HomeMadeMealViewController: UIViewController, UITextFieldDelegate, UIImage
         dismiss(animated: true, completion: nil)
     }
     
-    
-    // This method lets you configure a view controller before it's presented.
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        // Configure the destination view controller only when the save button is pressed.
-        guard let button = sender as? UIBarButtonItem, button === saveButton else {
-            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
-            return
-        }
+    // Save new Meal
+    @IBAction func saveMeal(_ sender: UIBarButtonItem) {
         let name = mealNameTxtField.text ?? ""
         //let photo = MealImageViewer.image
         let durationInMin:String? = durationTimeInMinTxtField.text
@@ -124,6 +117,7 @@ class HomeMadeMealViewController: UIViewController, UITextFieldDelegate, UIImage
             }
         }
     }
+    
     //MARK: Private Methods
     private func updateSaveButtonState() {
         // Disable the Save button if the text field is empty.
@@ -172,6 +166,9 @@ class HomeMadeMealViewController: UIViewController, UITextFieldDelegate, UIImage
                 print("response: ", utf8Representation)
             } else {
                 print("no readable data received in response")
+            }
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "unwindToMealListSegue", sender: self)
             }
         }
         task.resume()

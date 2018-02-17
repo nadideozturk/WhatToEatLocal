@@ -13,6 +13,7 @@
 		8B02CF0E202B71D200EAB35C /* HomeMadeMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02CF0D202B71D200EAB35C /* HomeMadeMealViewController.swift */; };
 		8B129B88201D2B6E000FDD00 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B129B87201D2B6E000FDD00 /* Meal.swift */; };
 		8B2D70AE202A5BDF00404F8C /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2D70AD202A5BDF00404F8C /* MealTableViewCell.swift */; };
+		8B6BBEFD2037F1570073C017 /* AutoSigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6BBEFC2037F1570073C017 /* AutoSigninViewController.swift */; };
 		8BBE0FA42034EEF4008FCC2F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBE0FA32034EEF4008FCC2F /* SignInViewController.swift */; };
 		8BBE0FA620351934008FCC2F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BBE0FA520351934008FCC2F /* GoogleService-Info.plist */; };
 		8BC5D901200B3500008C7C90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5D900200B3500008C7C90 /* AppDelegate.swift */; };
@@ -41,6 +42,7 @@
 		8B02CF0D202B71D200EAB35C /* HomeMadeMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMadeMealViewController.swift; sourceTree = "<group>"; };
 		8B129B87201D2B6E000FDD00 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		8B2D70AD202A5BDF00404F8C /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
+		8B6BBEFC2037F1570073C017 /* AutoSigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSigninViewController.swift; sourceTree = "<group>"; };
 		8BBE0FA32034EEF4008FCC2F /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		8BBE0FA520351934008FCC2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8BC5D8FD200B3500008C7C90 /* WhatToEatLocal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatToEatLocal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +132,7 @@
 				8B02CF09202A69C400EAB35C /* MealTableViewController.swift */,
 				8B02CF0D202B71D200EAB35C /* HomeMadeMealViewController.swift */,
 				8BBE0FA32034EEF4008FCC2F /* SignInViewController.swift */,
+				8B6BBEFC2037F1570073C017 /* AutoSigninViewController.swift */,
 			);
 			path = WhatToEatLocal;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BBE0FA42034EEF4008FCC2F /* SignInViewController.swift in Sources */,
+				8B6BBEFD2037F1570073C017 /* AutoSigninViewController.swift in Sources */,
 				8B129B88201D2B6E000FDD00 /* Meal.swift in Sources */,
 				8BC5D905200B3500008C7C90 /* SecondViewController.swift in Sources */,
 				8B02CF0A202A69C400EAB35C /* MealTableViewController.swift in Sources */,

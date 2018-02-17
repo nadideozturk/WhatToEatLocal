@@ -8,6 +8,7 @@
 
 import UIKit
 import os.log
+import GoogleSignIn
 
 class HomeMadeMealViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     // MARK: Properties
@@ -128,7 +129,8 @@ class HomeMadeMealViewController: UIViewController, UITextFieldDelegate, UIImage
     private func submitNewMeal(meal: Meal, completion:((Error?) -> Void)?){
         var urlComponents = URLComponents()
         urlComponents.scheme = "http"
-        urlComponents.host = "ec2-34-209-47-4.us-west-2.compute.amazonaws.com"
+        //urlComponents.host = "ec2-34-209-47-4.us-west-2.compute.amazonaws.com"
+        urlComponents.host = "192.168.1.9"
         urlComponents.port = 8080
         urlComponents.path = "/homemademeals"
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
@@ -140,6 +142,8 @@ class HomeMadeMealViewController: UIViewController, UITextFieldDelegate, UIImage
         // will be JSON encoded
         var headers = request.allHTTPHeaderFields ?? [:]
         headers["Content-Type"] = "application/json"
+        let token = GIDSignIn.sharedInstance().currentUser?.authentication?.idToken
+        headers["Authorization"] = token
         request.allHTTPHeaderFields = headers
         
         // Now let's encode out Post struct into JSON data...

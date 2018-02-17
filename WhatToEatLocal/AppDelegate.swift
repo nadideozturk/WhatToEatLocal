@@ -19,16 +19,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Initialize sign-in
         GIDSignIn.sharedInstance().clientID = "8792279534-3tv6nsf4apfh8ufuj1s43k7a2dqa6rnb.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         /* Code to show your tab bar controller */
         if GIDSignIn.sharedInstance().hasAuthInKeychain() {
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            if let tabBarVC = sb.instantiateViewController(withIdentifier: "TabBar") as? UITabBarController {
-                window?.rootViewController = tabBarVC
-            }
+            let autoSignInVC = storyBoard.instantiateViewController(withIdentifier: "AutoSignin")
+            window?.rootViewController = autoSignInVC
+//            if let tabBarVC = sb.instantiateViewController(withIdentifier: "TabBar") as? UITabBarController {
+//                window?.rootViewController = tabBarVC
+//            }
+            
         /* code to show your login VC */
         } else {
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            let signInVC = sb.instantiateViewController(withIdentifier: "SignIn")
+            
+            let signInVC = storyBoard.instantiateViewController(withIdentifier: "SignIn")
             window?.rootViewController = signInVC
             
         }
@@ -73,8 +76,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     // Implementation of the GIDSignInDelegate protocol to handle the sign-in process by defining the following methods:
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
               withError error: Error!) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         if let error = error {
             print("\(error.localizedDescription)")
+            let signInVC = storyBoard.instantiateViewController(withIdentifier: "SignIn")
+            window?.rootViewController = signInVC
         } else {
             // Perform any operations on signed in user here.
             let userId = user.userID                  // For client-side use only!
@@ -84,8 +90,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             let familyName = user.profile.familyName
             let email = user.profile.email
             DispatchQueue.main.async {
-                let sb = UIStoryboard(name: "Main", bundle: nil)
-                if let tabBarVC = sb.instantiateViewController(withIdentifier: "TabBar") as? UITabBarController {
+                if let tabBarVC = storyBoard.instantiateViewController(withIdentifier: "TabBar") as? UITabBarController {
                     self.window?.rootViewController = tabBarVC
                 }
             }

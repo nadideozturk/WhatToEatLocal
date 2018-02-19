@@ -99,8 +99,8 @@ class MealTableViewController: UITableViewController {
     }
     */
     private func loadMealsT(){
-        // guard let url = URL(string: "http://ec2-34-209-47-4.us-west-2.compute.amazonaws.com:8080/homemademeals") else {
-        guard let url = URL(string: "http://192.168.1.9:8080/homemademeals") else {
+        //guard let url = URL(string: "http://ec2-34-209-47-4.us-west-2.compute.amazonaws.com:8080/homemademeals") else {
+         guard let url = URL(string: "http://192.168.1.9:8080/homemademeals") else {
             return
         }
         let session = URLSession.shared
@@ -127,8 +127,8 @@ class MealTableViewController: UITableViewController {
     private func loadMeals(){
         var urlComponents = URLComponents()
         urlComponents.scheme = "http"
-        //urlComponents.host = "ec2-34-209-47-4.us-west-2.compute.amazonaws.com"
-        urlComponents.host = "192.168.1.9"
+        urlComponents.host = "ec2-34-209-47-4.us-west-2.compute.amazonaws.com"
+        //urlComponents.host = "192.168.1.9"
         urlComponents.port = 8080
         urlComponents.path = "/homemademeals"
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }

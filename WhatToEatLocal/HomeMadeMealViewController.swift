@@ -17,6 +17,7 @@ class HomeMadeMealViewController: UIViewController, UITextFieldDelegate, UIImage
     @IBOutlet weak var durationTimeInMinTxtField: UITextField!
     @IBOutlet weak var mealNameTxtField: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    
     /*
      This value is either passed by `MealTableViewController` in `prepare(for:sender:)`
      or constructed as part of adding a new meal.
@@ -73,6 +74,11 @@ class HomeMadeMealViewController: UIViewController, UITextFieldDelegate, UIImage
         }
     }
     
+    
+    @IBAction func datePickerChanged(_ sender: Any) {
+        setLastEatenDate()
+    }
+    
     @IBAction func selectImageFromLibrary(_ sender: UITapGestureRecognizer) {
         // Hide the keyboard.
         mealNameTxtField.resignFirstResponder()
@@ -111,7 +117,8 @@ class HomeMadeMealViewController: UIViewController, UITextFieldDelegate, UIImage
         //let photo = MealImageViewer.image
         let durationInMin:String? = durationTimeInMinTxtField.text
         let intDurationInMin:Int? = Int(durationInMin!)
-        let newMeal = Meal(id: "", name: name, photoUrl: "blabla", durationInMinutes:intDurationInMin!)
+        let lastEatenDate:String? = setLastEatenDate()
+        let newMeal = Meal(id: "", name: name, photoUrl: "blabla", durationInMinutes:intDurationInMin!,lastEatenDate: lastEatenDate!)
         submitNewMeal(meal: newMeal!) { (error) in
             if let error = error {
                 fatalError(error.localizedDescription)
@@ -127,12 +134,7 @@ class HomeMadeMealViewController: UIViewController, UITextFieldDelegate, UIImage
     }
     
     private func submitNewMeal(meal: Meal, completion:((Error?) -> Void)?){
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "http"
-        urlComponents.host = "ec2-34-209-47-4.us-west-2.compute.amazonaws.com"
-        //urlComponents.host = "192.168.1.9"
-        urlComponents.port = 8080
-        urlComponents.path = "/homemademeals"
+        let urlComponents = BackendConfig.getUrl(path: "/homemademeals")
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
         
         // Specify this request as being a POST method
@@ -176,6 +178,13 @@ class HomeMadeMealViewController: UIViewController, UITextFieldDelegate, UIImage
             }
         }
         task.resume()
+    }
+    
+    func setLastEatenDate() -> String {
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd"
+        let lastEatenDate = dateFormatterGet.string(from: LastEatenDatePicker.date)
+        return lastEatenDate
     }
     
 }

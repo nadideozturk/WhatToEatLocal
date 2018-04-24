@@ -14,11 +14,11 @@ PODS:
   - GoogleToolboxForMac/NSString+URLArguments (2.1.3)
   - GTMOAuth2 (1.1.6):
     - GTMSessionFetcher (~> 1.1)
-  - GTMSessionFetcher (1.1.13):
-    - GTMSessionFetcher/Full (= 1.1.13)
-  - GTMSessionFetcher/Core (1.1.13)
-  - GTMSessionFetcher/Full (1.1.13):
-    - GTMSessionFetcher/Core (= 1.1.13)
+  - GTMSessionFetcher (1.1.15):
+    - GTMSessionFetcher/Full (= 1.1.15)
+  - GTMSessionFetcher/Core (1.1.15)
+  - GTMSessionFetcher/Full (1.1.15):
+    - GTMSessionFetcher/Core (= 1.1.15)
 
 DEPENDENCIES:
   - GoogleSignIn
@@ -27,7 +27,7 @@ SPEC CHECKSUMS:
   GoogleSignIn: d9ef55b10f0aa401a5de2747f59b725e4b9732ac
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
-  GTMSessionFetcher: 5bb1eae636127de695590f50e7d248483eb891e6
+  GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
 
 PODFILE CHECKSUM: 896bbb0d73671db0426235227617738eb565526e
 

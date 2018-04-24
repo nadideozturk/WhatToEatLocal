@@ -16,8 +16,9 @@ class Meal:Decodable, Encodable {
     var name: String
     var photoUrl: String
     var durationInMinutes: Int
+    var lastEatenDate: String
     //MARK: Initialization
-    init?(id: String, name: String, photoUrl: String, durationInMinutes: Int){
+    init?(id: String, name: String, photoUrl: String, durationInMinutes: Int, lastEatenDate: String){
         //The name must not be empty
         guard !name.isEmpty else {
             return nil
@@ -26,5 +27,6 @@ class Meal:Decodable, Encodable {
         self.id = id
         self.photoUrl = photoUrl
         self.durationInMinutes = durationInMinutes
+        self.lastEatenDate = lastEatenDate
     }
 }

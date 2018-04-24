@@ -125,15 +125,9 @@ class MealTableViewController: UITableViewController {
             }.resume()
     }
     private func loadMeals(){
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "http"
-        urlComponents.host = "ec2-34-209-47-4.us-west-2.compute.amazonaws.com"
-        //urlComponents.host = "192.168.1.9"
-        urlComponents.port = 8080
-        urlComponents.path = "/homemademeals"
+        let urlComponents = BackendConfig.getUrl(path: "/homemademeals")
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
-        
-        // Specify this request as being a POST method
+        // Specify this request as being a GET method
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         // Make sure that we include headers specifying that our request's HTTP body

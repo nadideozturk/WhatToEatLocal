@@ -1,4 +1,5 @@
 PODS:
+  - Eureka (4.1.1)
   - GoogleSignIn (4.1.2):
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
     - GoogleToolboxForMac/NSString+URLArguments (~> 2.1)
@@ -19,16 +20,22 @@ PODS:
   - GTMSessionFetcher/Core (1.1.15)
   - GTMSessionFetcher/Full (1.1.15):
     - GTMSessionFetcher/Core (= 1.1.15)
+  - ImageRow (3.0.0):
+    - Eureka (~> 4.0)
 
 DEPENDENCIES:
+  - Eureka
   - GoogleSignIn
+  - ImageRow (~> 3.0)
 
 SPEC CHECKSUMS:
+  Eureka: b88fb930e42c79f8c03c373d0fcdc28c1d6c50ed
   GoogleSignIn: d9ef55b10f0aa401a5de2747f59b725e4b9732ac
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
+  ImageRow: 048123c296de9a6ac3998c415a6706c45ce480af
 
-PODFILE CHECKSUM: 896bbb0d73671db0426235227617738eb565526e
+PODFILE CHECKSUM: 678d126834341c1f7518e3d29914c897c304d7db
 
 COCOAPODS: 1.4.0

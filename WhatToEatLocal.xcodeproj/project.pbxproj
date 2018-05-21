@@ -24,6 +24,7 @@
 		8BC5D908200B3500008C7C90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC5D906200B3500008C7C90 /* Main.storyboard */; };
 		8BC5D90A200B3500008C7C90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC5D909200B3500008C7C90 /* Assets.xcassets */; };
 		8BC5D918200B3501008C7C90 /* WhatToEatLocalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5D917200B3501008C7C90 /* WhatToEatLocalTests.swift */; };
+		8BF7C14C20A65BBE005964D4 /* OutsideMealCrudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7C14B20A65BBE005964D4 /* OutsideMealCrudViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		8BC5D913200B3501008C7C90 /* WhatToEatLocalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatToEatLocalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC5D917200B3501008C7C90 /* WhatToEatLocalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatToEatLocalTests.swift; sourceTree = "<group>"; };
 		8BC5D919200B3501008C7C90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BF7C14B20A65BBE005964D4 /* OutsideMealCrudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutsideMealCrudViewController.swift; sourceTree = "<group>"; };
 		ABA7E4D5C607F62F7919762C /* Pods-WhatToEatLocalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatToEatLocalTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatToEatLocalTests/Pods-WhatToEatLocalTests.release.xcconfig"; sourceTree = "<group>"; };
 		B7FBF9DF81A60C8ACD3C6999 /* Pods-WhatToEatLocalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatToEatLocalTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatToEatLocalTests/Pods-WhatToEatLocalTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,6 +144,7 @@
 				8B66D5AE208EE0D1006F41EE /* BackendConfig.swift */,
 				8B282219208FF2CE0058A6BC /* OutsideMealCollectionViewCell.swift */,
 				8B28221B208FF93C0058A6BC /* OutsideMeal.swift */,
+				8BF7C14B20A65BBE005964D4 /* OutsideMealCrudViewController.swift */,
 			);
 			path = WhatToEatLocal;
 			sourceTree = "<group>";
@@ -318,15 +321,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WhatToEatLocal/Pods-WhatToEatLocal-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageRow.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -384,6 +391,7 @@
 				8B2D70AE202A5BDF00404F8C /* MealTableViewCell.swift in Sources */,
 				8B02CF0E202B71D200EAB35C /* HomeMadeMealViewController.swift in Sources */,
 				8BC5D901200B3500008C7C90 /* AppDelegate.swift in Sources */,
+				8BF7C14C20A65BBE005964D4 /* OutsideMealCrudViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

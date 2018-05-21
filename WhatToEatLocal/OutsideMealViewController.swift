@@ -83,5 +83,8 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource {
         }
         task.resume()
     }
+    @IBAction func unwindToOutsideMealList(sender: UIStoryboardSegue) {
+        loadMeals()
+    }
 }
 

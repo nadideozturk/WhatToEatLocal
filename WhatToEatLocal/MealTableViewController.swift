@@ -171,7 +171,4 @@ class MealTableViewController: UITableViewController {
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
         loadMeals()
     }
-    @IBAction func windToMealList(sender: UIStoryboardSegue) {
-        loadMeals()
-    }
 }

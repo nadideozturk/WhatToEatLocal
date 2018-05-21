@@ -8,11 +8,12 @@ target 'WhatToEatLocal' do
   # Pods for WhatToEatLocal
   pod 'GoogleSignIn'
   
-  #source 'https://github.com/CocoaPods/Specs.git'
-  #platform :ios, '9.0'
-  #use_frameworks!
+  source 'https://github.com/CocoaPods/Specs.git'
+  platform :ios, '9.0'
+  use_frameworks!
   
-  #pod 'Eureka'
+  pod 'Eureka'
+  pod 'ImageRow', '~> 3.0'
   
   target 'WhatToEatLocalTests' do
     inherit! :search_paths

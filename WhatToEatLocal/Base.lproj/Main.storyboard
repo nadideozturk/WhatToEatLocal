@@ -186,16 +186,32 @@
         <!--New Outside Meal-->
         <scene sceneID="fXw-xA-wfT">
             <objects>
-                <viewController id="uWw-Zz-hxA" sceneMemberID="viewController">
+                <viewController id="uWw-Zz-hxA" customClass="OutsideMealCrudViewController" customModule="WhatToEatLocal" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eLe-el-nYn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="mIk-ho-vwf"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Outside Meal" id="N46-3a-JGT"/>
+                    <navigationItem key="navigationItem" title="New Outside Meal" id="N46-3a-JGT">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="se7-gj-JVQ">
+                            <connections>
+                                <action selector="cancelOutsideMeal:" destination="uWw-Zz-hxA" id="t6f-53-eT7"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="MKh-b5-La4">
+                            <connections>
+                                <action selector="saveOutsideMeal:" destination="uWw-Zz-hxA" id="d8a-RC-XuL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="saveButton" destination="MKh-b5-La4" id="Row-K9-Q9q"/>
+                        <segue destination="cb7-z6-bJQ" kind="unwind" identifier="unwindToOutsideMealListSegue" unwindAction="unwindToOutsideMealListWithSender:" id="YSU-i3-PMm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pXb-Fr-RVV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="cb7-z6-bJQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3618.4000000000001" y="329.68515742128938"/>
         </scene>

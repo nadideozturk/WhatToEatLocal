@@ -15,11 +15,12 @@ class OutsideMeal:Decodable, Encodable {
     var id: String
     var name: String
     var photoUrl: String
-    var price: Int
+    var price: Double
     var lastEatenDate: String
     var restaurantName: String
+    var photoContent: String
     //MARK: Initialization
-    init?(id: String, name: String, photoUrl: String, price: Int, lastEatenDate: String, restaurantName: String){
+    init?(id: String, name: String, photoUrl: String, price: Double, lastEatenDate: String, restaurantName: String, photoContent: String){
         //The name must not be empty
         guard !name.isEmpty else {
             return nil
@@ -30,5 +31,6 @@ class OutsideMeal:Decodable, Encodable {
         self.price = price
         self.lastEatenDate = lastEatenDate
         self.restaurantName = restaurantName
+        self.photoContent = photoContent
     }
 }

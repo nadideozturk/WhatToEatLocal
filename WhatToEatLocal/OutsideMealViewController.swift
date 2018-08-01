@@ -9,15 +9,20 @@
 import UIKit
 import os.log
 import GoogleSignIn
+import Cloudinary
 
 class OutsideMealViewController: UIViewController, UICollectionViewDataSource {
     
     var outsideMeals = [OutsideMeal]()
+    
+    var config = CLDConfiguration(cloudName: "dv0qmj6vt", apiKey: "752346693282248")
+    var cloudinary:CLDCloudinary! = nil
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        cloudinary = CLDCloudinary(configuration: self.config)
         collectionView.dataSource = self
         loadMeals()
     }
@@ -30,10 +35,10 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource {
         cell.outsideMealNameLbl.text = outsideMeals[indexPath.row].name
         cell.outsideRestLabel.text = outsideMeals[indexPath.row].restaurantName
         cell.outsideMealPriceLbl.text = "CDN$ " + String(outsideMeals[indexPath.row].price)
-        cell.outsideMealImageView.image = #imageLiteral(resourceName: "Meal3")
+        loadImageForCell(urlStr: outsideMeals[indexPath.row].photoUrl, cell: cell)
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 0.5
-        cell.layer.cornerRadius = 5.0//if you want corner radius.addtional
+        cell.layer.cornerRadius = 5.0// corner radius.addtional
         return cell
     }
     
@@ -69,7 +74,6 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource {
                 do {
                     self.outsideMeals = try JSONDecoder().decode([OutsideMeal].self, from: data)
                     DispatchQueue.main.async {
-                        //self.tableView.reloadData()
                         self.collectionView.reloadData()
                     }
                     return
@@ -85,6 +89,28 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource {
     }
     @IBAction func unwindToOutsideMealList(sender: UIStoryboardSegue) {
         loadMeals()
+    }
+    private func loadImageForCell(urlStr: String, cell: OutsideMealCollectionViewCell) {
+        let url = URL(string: urlStr)
+        self.cloudinary.createDownloader().fetchImage(urlStr, nil, completionHandler: { (result,error) in
+            if let error = error {
+                print("Error downloading image %@", error)
+            }
+            else {
+                print("Image downloaded from Cloudinary successfully")
+                do{
+                    let data = try Data(contentsOf: url!)
+                    var image: UIImage?
+                    image = UIImage(data: data)
+                    DispatchQueue.main.async {
+                        cell.outsideMealImageView.image = image
+                    }
+                }
+                catch _ as NSError{
+                }
+            }
+
+        })
     }
 }
 

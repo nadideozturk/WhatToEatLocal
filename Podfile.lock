@@ -1,4 +1,7 @@
 PODS:
+  - Alamofire (4.6.0)
+  - Cloudinary (2.3.0):
+    - Alamofire (~> 4.6.0)
   - Eureka (4.1.1)
   - GoogleSignIn (4.1.2):
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
@@ -24,11 +27,14 @@ PODS:
     - Eureka (~> 4.0)
 
 DEPENDENCIES:
+  - Cloudinary (~> 2.0)
   - Eureka
   - GoogleSignIn
   - ImageRow (~> 3.0)
 
 SPEC CHECKSUMS:
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  Cloudinary: fd611d907bd6608f3556c40673b628e466809816
   Eureka: b88fb930e42c79f8c03c373d0fcdc28c1d6c50ed
   GoogleSignIn: d9ef55b10f0aa401a5de2747f59b725e4b9732ac
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
@@ -36,6 +42,6 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
   ImageRow: 048123c296de9a6ac3998c415a6706c45ce480af
 
-PODFILE CHECKSUM: 678d126834341c1f7518e3d29914c897c304d7db
+PODFILE CHECKSUM: ecd65678214a857e1c922f01499299df001832a9
 
 COCOAPODS: 1.4.0

@@ -52,7 +52,6 @@ class OutsideMealCrudViewController: FormViewController {
                 }.onChange({ (row) in
                     self.lastEatenDate = row.value!  //updating the value on change
                 })
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,33 +65,19 @@ class OutsideMealCrudViewController: FormViewController {
     
     // Save new Meal
     @IBAction func saveOutsideMeal(_ sender: UIBarButtonItem) {
-        //let name = mealNameTxtField.text ?? ""
-        //let photo = MealImageViewer.image
-        //let durationInMin:String? = durationTimeInMinTxtField.text
-        //let intDurationInMin:Int? = Int(durationInMin!)
-        //let lastEatenDate:String? = setLastEatenDate()
         let row: TextRow? = form.rowBy(tag: "mealName")
         let name = row?.value
         print(name ?? "Empty outside meal name")
         let values = form.values()
         let selectedImage = values["outsideMealImage"] as? UIImage
-        //let imageData:NSData = UIImagePNGRepresentation(image!)! as NSData
         let resizedImage = resizeImage(selectedImage!)
-       
         let imageData:NSData = UIImagePNGRepresentation(resizedImage)! as NSData
         let imageBase64 = "data:image/jpeg;base64," + imageData.base64EncodedString()
-        //let rowDate: TextRow? = form.rowBy(tag: "lastEatenDate")
         let strLastEatenDate = setLastEatenDate()
         let priceRow: DecimalRow? = form.rowBy(tag: "price")
         let price = priceRow?.value
         let resRow: TextRow? = form.rowBy(tag: "restaurantName")
         let restaurantName = resRow?.value
-        let size = imageData.length
-        //outsideMealImage
-        //DispatchQueue.main.async {
-            //self.performSegue(withIdentifier: "unwindToOutsideMealListSegue", sender: self)
-       // }
-//        let newMeal = OutsideMeal(id: "", name: name, photoUrl: "blabla", durationInMinutes:intDurationInMin!,lastEatenDate: lastEatenDate!)
         let newMeal = OutsideMeal(id: "", name: name!, photoUrl: " ", price: price!, lastEatenDate: strLastEatenDate, restaurantName: restaurantName!, photoContent: imageBase64)
         submitNewMeal(meal: newMeal!) { (error) in
             if let error = error {

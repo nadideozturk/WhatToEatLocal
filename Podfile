@@ -15,6 +15,8 @@ target 'WhatToEatLocal' do
   pod 'Eureka'
   pod 'ImageRow', '~> 3.0'
   
+  pod 'Cloudinary', '~> 2.0'
+  
   target 'WhatToEatLocalTests' do
     inherit! :search_paths
     # Pods for testing

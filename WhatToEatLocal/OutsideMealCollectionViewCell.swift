@@ -13,6 +13,4 @@ class OutsideMealCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var outsideMealImageView: UIImageView!
     @IBOutlet weak var outsideMealNameLbl: UILabel!
-    @IBOutlet weak var outsideMealPriceLbl: UILabel!
-    @IBOutlet weak var outsideRestLabel: UILabel!
 }

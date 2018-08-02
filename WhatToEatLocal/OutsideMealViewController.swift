@@ -32,9 +32,9 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource {
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "outsideMealCustomCell", for: indexPath) as! OutsideMealCollectionViewCell
-        cell.outsideMealNameLbl.text = outsideMeals[indexPath.row].name
-        cell.outsideRestLabel.text = outsideMeals[indexPath.row].restaurantName
-        cell.outsideMealPriceLbl.text = "CDN$ " + String(outsideMeals[indexPath.row].price)
+        cell.outsideMealNameLbl.text = outsideMeals[indexPath.row].name + " at " + outsideMeals[indexPath.row].restaurantName
+        //cell.outsideRestLabel.text = outsideMeals[indexPath.row].restaurantName
+        //cell.outsideMealPriceLbl.text = "CDN$ " + String(outsideMeals[indexPath.row].price)
         loadImageForCell(urlStr: outsideMeals[indexPath.row].photoUrl, cell: cell)
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 0.5

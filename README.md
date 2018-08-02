@@ -4,6 +4,12 @@ WhatToEat is an iOS application that helps users to decide their daily meal sele
 
 The main differentiator for this app is, users are free to manage their own favorite meals for cooking or ordering for a personalized experience.
 
+## User Interfaces
+
+| Homemade Meals  | Outside meals  | Add new outside meal  |
+|---|---|---|
+| <img src="https://res.cloudinary.com/dv0qmj6vt/image/upload/v1533250800/whattoeat/userinterfaces/IMG-5124.png" width="300" height="500"/>  | <img src="https://res.cloudinary.com/dv0qmj6vt/image/upload/v1533250800/whattoeat/userinterfaces/IMG-5125.png" width="300" height="500"/>  | <img src="https://res.cloudinary.com/dv0qmj6vt/image/upload/v1533250800/whattoeat/userinterfaces/IMG-5121.png" width="300" height="500"/>  |
+
 ## Technologies and Platforms
 ### Backend
 **Application:** RESTful API using Spring boot  

@@ -9,13 +9,20 @@
 import UIKit
 import os.log
 import GoogleSignIn
+import Cloudinary
 
-class MealTableViewController: UITableViewController {
+class HomemadeMealCollectionView: UICollectionViewController {
 
     var meals = [Meal]()
+    var config = CLDConfiguration(cloudName: "dv0qmj6vt", apiKey: "752346693282248")
+    var cloudinary:CLDCloudinary! = nil
+    
+    @IBOutlet var homemadeMealCollection: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        cloudinary = CLDCloudinary(configuration: self.config)
+        homemadeMealCollection.dataSource = self
         loadMeals()
     }
 
@@ -23,81 +30,24 @@ class MealTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return meals.count
     }
-
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Configure the cell..
-        // Table view cells are reused and should be dequeued using a cell identifier.
-        let cellIdentifier = "MealTableViewCell"
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MealTableViewCell  else {
-            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
-        }
-        
-        // Fetches the appropriate meal for the data source layout.
-        let meal = meals[indexPath.row]
-        
-        cell.nameLabel.text = meal.name
-        cell.photoImageView.image = #imageLiteral(resourceName: "Meal1")
-        cell.durationLabel.text = String(meal.durationInMinutes)
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = homemadeMealCollection.dequeueReusableCell(withReuseIdentifier: "homemadeMealCustomCell", for: indexPath) as! HomemadeMealCollectionViewCell
+        cell.hmMealNameLabel.text = meals[indexPath.row].name
+        cell.hmMealDurInMinLabel.text = String(meals[indexPath.row].durationInMinutes) + " min"
+        //cell.outsideRestLabel.text = outsideMeals[indexPath.row].restaurantName
+        //cell.outsideMealPriceLbl.text = "CDN$ " + String(outsideMeals[indexPath.row].price)
+        loadImageForCell(urlStr: meals[indexPath.row].photoUrl, cell: cell)
+        cell.layer.borderColor = UIColor.lightGray.cgColor
+        cell.layer.borderWidth = 0.5
+        cell.layer.cornerRadius = 5.0// corner radius.addtional
         return cell
     }
- 
-
+    
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     private func loadMealsT(){
         //guard let url = URL(string: "http://ec2-34-209-47-4.us-west-2.compute.amazonaws.com:8080/homemademeals") else {
          guard let url = URL(string: "http://192.168.1.9:8080/homemademeals") else {
@@ -123,7 +73,7 @@ class MealTableViewController: UITableViewController {
                 }
             }
             }.resume()
-    }
+    } */
     private func loadMeals(){
         let urlComponents = BackendConfig.getUrl(path: "/homemademeals")
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
@@ -154,7 +104,8 @@ class MealTableViewController: UITableViewController {
                 do {
                     self.meals = try JSONDecoder().decode([Meal].self, from: data)
                     DispatchQueue.main.async {
-                        self.tableView.reloadData()
+                        //self.tableView.reloadData()
+                        self.homemadeMealCollection.reloadData()
                     }
                     return
                 } catch let jsonErr {
@@ -170,5 +121,27 @@ class MealTableViewController: UITableViewController {
     
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
         loadMeals()
+    }
+    private func loadImageForCell(urlStr: String, cell: HomemadeMealCollectionViewCell) {
+        let url = URL(string: urlStr)
+        self.cloudinary.createDownloader().fetchImage(urlStr, nil, completionHandler: { (result,error) in
+            if let error = error {
+                print("Error downloading image %@", error)
+            }
+            else {
+                print("Image downloaded from Cloudinary successfully")
+                do{
+                    let data = try Data(contentsOf: url!)
+                    var image: UIImage?
+                    image = UIImage(data: data)
+                    DispatchQueue.main.async {
+                        cell.hmMealImageView.image = image
+                    }
+                }
+                catch _ as NSError{
+                }
+            }
+            
+        })
     }
 }

@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -399,65 +398,10 @@
                     <view key="view" contentMode="scaleToFill" id="afS-by-U4v">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wZa-Zi-6fS">
-                                <rect key="frame" x="22" y="64" width="330" height="520.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Meal Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5J-i1-1au">
-                                        <rect key="frame" x="0.0" y="0.0" width="330" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="22p-Kl-aZv">
-                                        <rect key="frame" x="0.0" y="20.5" width="330" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Preparetion Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZF-af-VaE">
-                                        <rect key="frame" x="0.0" y="50.5" width="330" height="20"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dyu-Zk-Fja">
-                                        <rect key="frame" x="0.0" y="70.5" width="330" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <datePicker contentMode="scaleToFill" ambiguous="YES" placeholderIntrinsicWidth="330" placeholderIntrinsicHeight="100" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="jc0-vZ-tKA">
-                                        <rect key="frame" x="0.0" y="100.5" width="330" height="100"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="539719217.42709696">
-                                            <!--2018-02-07 18:00:17 +0000-->
-                                        </date>
-                                        <connections>
-                                            <action selector="datePickerChanged:" destination="y7b-QR-F6V" eventType="valueChanged" id="UUg-oI-ln3"/>
-                                        </connections>
-                                    </datePicker>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="310" placeholderIntrinsicHeight="310" image="DefaultMealImage" translatesAutoresizingMaskIntoConstraints="NO" id="85p-tf-Kip">
-                                        <rect key="frame" x="0.0" y="200.5" width="330" height="320"/>
-                                        <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="85p-tf-Kip" secondAttribute="height" multiplier="32:31" id="dWh-0E-Xug"/>
-                                        </constraints>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="IrH-h1-ie0" appends="YES" id="ZTs-JQ-hIg"/>
-                                        </connections>
-                                    </imageView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="Dyu-Zk-Fja" firstAttribute="top" secondItem="22p-Kl-aZv" secondAttribute="bottom" constant="20" id="WL9-yb-kl4"/>
-                                    <constraint firstItem="jc0-vZ-tKA" firstAttribute="top" secondItem="Dyu-Zk-Fja" secondAttribute="bottom" constant="20" id="qc2-Fw-vVu"/>
-                                </constraints>
-                            </stackView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="N3q-gr-UmZ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Meal" id="07M-Xm-r2d">
+                    <navigationItem key="navigationItem" title="New Homemade Meal" id="07M-Xm-r2d">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="ihj-LC-5GU">
                             <connections>
                                 <action selector="cancel:" destination="y7b-QR-F6V" id="90K-9e-x88"/>
@@ -470,21 +414,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="LastEatenDatePicker" destination="jc0-vZ-tKA" id="blr-5Q-ySC"/>
-                        <outlet property="MealImageViewer" destination="85p-tf-Kip" id="9eM-Lj-zPN"/>
-                        <outlet property="durationTimeInMinTxtField" destination="Dyu-Zk-Fja" id="R3s-LA-gpL"/>
-                        <outlet property="mealNameTxtField" destination="22p-Kl-aZv" id="EF4-3n-Sxv"/>
                         <outlet property="saveButton" destination="kHg-Ta-zGd" id="hlO-QK-SWa"/>
                         <segue destination="tES-2t-bwc" kind="unwind" identifier="unwindToMealListSegue" unwindAction="unwindToMealListWithSender:" id="wPr-pd-Mct"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4kN-hg-lgZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="tES-2t-bwc" userLabel="Exit" sceneMemberID="exit"/>
-                <tapGestureRecognizer id="IrH-h1-ie0">
-                    <connections>
-                        <action selector="selectImageFromLibrary:" destination="y7b-QR-F6V" id="Um2-2f-Yjr"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3966" y="-421"/>
         </scene>
@@ -576,7 +511,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="DefaultMealImage" width="540" height="540"/>
         <image name="ForYouTabIcon" width="30" height="30"/>
         <image name="HomePageIcon" width="161" height="113"/>
         <image name="IdeaTabIcon" width="30" height="30"/>

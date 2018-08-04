@@ -12,8 +12,6 @@ class HomemadeMealCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var hmMealImageView: UIImageView!
     
-    @IBOutlet weak var hmMealDurInMinLabel: UILabel!
-    
     @IBOutlet weak var hmMealNameLabel: UILabel!
     
     override func awakeFromNib() {

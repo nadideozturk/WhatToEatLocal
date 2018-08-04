@@ -37,9 +37,6 @@ class HomemadeMealCollectionView: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = homemadeMealCollection.dequeueReusableCell(withReuseIdentifier: "homemadeMealCustomCell", for: indexPath) as! HomemadeMealCollectionViewCell
         cell.hmMealNameLabel.text = meals[indexPath.row].name
-        cell.hmMealDurInMinLabel.text = String(meals[indexPath.row].durationInMinutes) + " min"
-        //cell.outsideRestLabel.text = outsideMeals[indexPath.row].restaurantName
-        //cell.outsideMealPriceLbl.text = "CDN$ " + String(outsideMeals[indexPath.row].price)
         loadImageForCell(urlStr: meals[indexPath.row].photoUrl, cell: cell)
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 0.5

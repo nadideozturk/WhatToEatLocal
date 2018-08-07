@@ -11,7 +11,7 @@ import os.log
 import GoogleSignIn
 import Cloudinary
 
-class OutsideMealViewController: UIViewController, UICollectionViewDataSource {
+class OutsideMealViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var outsideMeals = [OutsideMeal]()
     
@@ -24,6 +24,7 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource {
         super.viewDidLoad()
         cloudinary = CLDCloudinary(configuration: self.config)
         collectionView.dataSource = self
+        collectionView.delegate = self
         loadMeals()
     }
 
@@ -42,6 +43,23 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource {
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    //override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath as IndexPath)
+        self.performSegue(withIdentifier: "showOutsideMealDetailSegue", sender: cell)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showOutsideMealDetailSegue" {
+            //let detailsVC: HomemadeMealDetailViewController = segue.destination as! HomemadeMealDetailViewController
+            let navController: UINavigationController = segue.destination as! UINavigationController
+            let detailsVC: OutsideMealDetailViewController = navController.topViewController as! OutsideMealDetailViewController
+            //let detailsVC: HomemadeMealDetailViewController = navController. as! HomemadeMealDetailViewController
+            let cell = sender as! OutsideMealCollectionViewCell
+            let indexPath = self.collectionView!.indexPath(for: cell)
+            //detailsVC.lblHomemadeMealName.text = meals[(indexPath?.row)!].name
+        }
+    }
     // MARK: Private methods
     
     private func loadMeals(){

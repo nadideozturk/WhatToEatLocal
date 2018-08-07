@@ -161,6 +161,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="9Ru-Xo-BTw" id="rh8-ZA-h6s"/>
+                        <segue destination="mRC-9E-7Gt" kind="showDetail" identifier="showOutsideMealDetailSegue" id="agL-j8-TFH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -198,6 +199,29 @@
                 <exit id="cb7-z6-bJQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3618.4000000000001" y="329.68515742128938"/>
+        </scene>
+        <!--Outside Meal Detail View Controller-->
+        <scene sceneID="3o4-IC-uRp">
+            <objects>
+                <viewController id="BnN-aq-vbM" customClass="OutsideMealDetailViewController" customModule="WhatToEatLocal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="laQ-V0-IUt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Xuh-70-dfr"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gtW-TC-fq8">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;Back" style="done" id="Tt9-cP-8aR">
+                            <connections>
+                                <segue destination="iAZ-Zz-go7" kind="unwind" unwindAction="unwindToOutsideMealListWithSender:" id="AEG-Vg-iaw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pap-Js-Oxm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="iAZ-Zz-go7" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3591" y="1082"/>
         </scene>
         <!--AutoSignin-->
         <scene sceneID="x5w-TO-4GJ">
@@ -377,6 +401,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="homemadeMealCollection" destination="jQz-io-y97" id="4bT-wT-bhk"/>
+                        <segue destination="AvP-Au-a9t" kind="showDetail" identifier="showHomemadeMealDetailsSegue" id="1sz-Ah-xt9"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RkD-9d-VUe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -483,6 +508,34 @@
             </objects>
             <point key="canvasLocation" x="2679.1999999999998" y="329.68515742128938"/>
         </scene>
+        <!--Homemade Meal Detail View Controller-->
+        <scene sceneID="aWK-pu-QGE">
+            <objects>
+                <viewController id="wlI-av-1uq" customClass="HomemadeMealDetailViewController" customModule="WhatToEatLocal" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TtQ-Bc-gVl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Homemade meal Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbP-78-eor">
+                                <rect key="frame" x="98" y="299" width="178" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="CdZ-5T-vcb"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9SB-L6-f53"/>
+                    <connections>
+                        <outlet property="lblHomemadeMealName" destination="zbP-78-eor" id="rH9-eH-tSI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qJI-sr-brU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3921" y="-1373"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="KEr-eZ-uAj">
             <objects>
@@ -500,6 +553,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sXj-BC-p7c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2823" y="-421"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iCF-VR-spw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AvP-Au-a9t" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Exp-xv-aVx">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wlI-av-1uq" kind="relationship" relationship="rootViewController" id="Q4M-hh-ahC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ehq-b1-jrY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2822" y="-1403"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jam-AX-zcm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mRC-9E-7Gt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0ly-kR-smy">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BnN-aq-vbM" kind="relationship" relationship="rootViewController" id="P9S-EI-mhK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u1U-nT-m3V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2679" y="1082"/>
         </scene>
     </scenes>
     <resources>

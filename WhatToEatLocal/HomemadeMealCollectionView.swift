@@ -34,6 +34,7 @@ class HomemadeMealCollectionView: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return meals.count
     }
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = homemadeMealCollection.dequeueReusableCell(withReuseIdentifier: "homemadeMealCustomCell", for: indexPath) as! HomemadeMealCollectionViewCell
         cell.hmMealNameLabel.text = meals[indexPath.row].name
@@ -44,6 +45,22 @@ class HomemadeMealCollectionView: UICollectionViewController {
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath as IndexPath)
+        self.performSegue(withIdentifier: "showHomemadeMealDetailsSegue", sender: cell)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showHomemadeMealDetailsSegue" {
+            //let detailsVC: HomemadeMealDetailViewController = segue.destination as! HomemadeMealDetailViewController
+            let navController: UINavigationController = segue.destination as! UINavigationController
+            let detailsVC: HomemadeMealDetailViewController = navController.topViewController as! HomemadeMealDetailViewController
+            //let detailsVC: HomemadeMealDetailViewController = navController. as! HomemadeMealDetailViewController
+            let cell = sender as! HomemadeMealCollectionViewCell
+            let indexPath = self.collectionView!.indexPath(for: cell)
+            detailsVC.meal = meals[(indexPath?.row)!]
+        }
+    }
     /*
     private func loadMealsT(){
         //guard let url = URL(string: "http://ec2-34-209-47-4.us-west-2.compute.amazonaws.com:8080/homemademeals") else {

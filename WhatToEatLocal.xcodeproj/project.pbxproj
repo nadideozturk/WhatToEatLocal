@@ -24,6 +24,8 @@
 		8BC5D908200B3500008C7C90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC5D906200B3500008C7C90 /* Main.storyboard */; };
 		8BC5D90A200B3500008C7C90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC5D909200B3500008C7C90 /* Assets.xcassets */; };
 		8BC5D918200B3501008C7C90 /* WhatToEatLocalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5D917200B3501008C7C90 /* WhatToEatLocalTests.swift */; };
+		8BEF17D02116E1A80096B154 /* HomemadeMealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF17CF2116E1A80096B154 /* HomemadeMealDetailViewController.swift */; };
+		8BEF17D22116FC440096B154 /* OutsideMealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF17D12116FC440096B154 /* OutsideMealDetailViewController.swift */; };
 		8BF7C14C20A65BBE005964D4 /* OutsideMealCrudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7C14B20A65BBE005964D4 /* OutsideMealCrudViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +63,8 @@
 		8BC5D913200B3501008C7C90 /* WhatToEatLocalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatToEatLocalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC5D917200B3501008C7C90 /* WhatToEatLocalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatToEatLocalTests.swift; sourceTree = "<group>"; };
 		8BC5D919200B3501008C7C90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BEF17CF2116E1A80096B154 /* HomemadeMealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomemadeMealDetailViewController.swift; sourceTree = "<group>"; };
+		8BEF17D12116FC440096B154 /* OutsideMealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutsideMealDetailViewController.swift; sourceTree = "<group>"; };
 		8BF7C14B20A65BBE005964D4 /* OutsideMealCrudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutsideMealCrudViewController.swift; sourceTree = "<group>"; };
 		ABA7E4D5C607F62F7919762C /* Pods-WhatToEatLocalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatToEatLocalTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatToEatLocalTests/Pods-WhatToEatLocalTests.release.xcconfig"; sourceTree = "<group>"; };
 		B7FBF9DF81A60C8ACD3C6999 /* Pods-WhatToEatLocalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatToEatLocalTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatToEatLocalTests/Pods-WhatToEatLocalTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 				8B282219208FF2CE0058A6BC /* OutsideMealCollectionViewCell.swift */,
 				8B28221B208FF93C0058A6BC /* OutsideMeal.swift */,
 				8BF7C14B20A65BBE005964D4 /* OutsideMealCrudViewController.swift */,
+				8BEF17CF2116E1A80096B154 /* HomemadeMealDetailViewController.swift */,
+				8BEF17D12116FC440096B154 /* OutsideMealDetailViewController.swift */,
 			);
 			path = WhatToEatLocal;
 			sourceTree = "<group>";
@@ -396,6 +402,8 @@
 				8B02CF0E202B71D200EAB35C /* HomeMadeMealViewController.swift in Sources */,
 				8BC5D901200B3500008C7C90 /* AppDelegate.swift in Sources */,
 				8BF7C14C20A65BBE005964D4 /* OutsideMealCrudViewController.swift in Sources */,
+				8BEF17D22116FC440096B154 /* OutsideMealDetailViewController.swift in Sources */,
+				8BEF17D02116E1A80096B154 /* HomemadeMealDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

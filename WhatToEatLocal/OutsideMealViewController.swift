@@ -51,8 +51,7 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource, U
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showOutsideMealDetailSegue" {
-            let navController: UINavigationController = segue.destination as! UINavigationController
-            let detailsVC: OutsideMealDetailViewController = navController.topViewController as! OutsideMealDetailViewController
+            let detailsVC: OutsideMealDetailViewController = segue.destination as! OutsideMealDetailViewController
             let cell = sender as! OutsideMealCollectionViewCell
             let indexPath = self.collectionView!.indexPath(for: cell)
             detailsVC.meal = outsideMeals[(indexPath?.row)!]

@@ -42,7 +42,7 @@ class HomemadeMealCollectionView: UICollectionViewController {
         loadImageForCell(urlStr: meals[indexPath.row].photoUrl, cell: cell)
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 0.5
-        cell.layer.cornerRadius = 5.0// corner radius.addtional
+        cell.layer.cornerRadius = 5.0 // corner radius.addtional
         return cell
     }
     
@@ -53,15 +53,13 @@ class HomemadeMealCollectionView: UICollectionViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showHomemadeMealDetailsSegue" {
-            //let detailsVC: HomemadeMealDetailViewController = segue.destination as! HomemadeMealDetailViewController
-            let navController: UINavigationController = segue.destination as! UINavigationController
-            let detailsVC: HomemadeMealDetailViewController = navController.topViewController as! HomemadeMealDetailViewController
-            //let detailsVC: HomemadeMealDetailViewController = navController. as! HomemadeMealDetailViewController
+            let detailsVC: HomemadeMealDetailViewController = segue.destination as! HomemadeMealDetailViewController
             let cell = sender as! HomemadeMealCollectionViewCell
             let indexPath = self.collectionView!.indexPath(for: cell)
             detailsVC.meal = meals[(indexPath?.row)!]
         }
     }
+    
     /*
     private func loadMealsT(){
         //guard let url = URL(string: "http://ec2-34-209-47-4.us-west-2.compute.amazonaws.com:8080/homemademeals") else {
@@ -89,6 +87,7 @@ class HomemadeMealCollectionView: UICollectionViewController {
             }
             }.resume()
     } */
+    
     private func loadMeals(){
         let urlComponents = BackendConfig.getUrl(path: "/homemademeals")
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
@@ -137,6 +136,7 @@ class HomemadeMealCollectionView: UICollectionViewController {
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
         loadMeals()
     }
+    
     private func loadImageForCell(urlStr: String, cell: HomemadeMealCollectionViewCell) {
         let url = URL(string: urlStr)
         self.cloudinary.createDownloader().fetchImage(urlStr, nil, completionHandler: { (result,error) in
@@ -156,7 +156,6 @@ class HomemadeMealCollectionView: UICollectionViewController {
                 catch _ as NSError{
                 }
             }
-            
         })
     }
 }

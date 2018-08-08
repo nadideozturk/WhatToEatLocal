@@ -54,13 +54,11 @@ class HomeMadeMealViewController: FormViewController, UINavigationControllerDele
         super.didReceiveMemoryWarning()
     }
     
-    
     //MARK: Navigation
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
-    
     
     //MARK: Actions
     
@@ -77,7 +75,6 @@ class HomeMadeMealViewController: FormViewController, UINavigationControllerDele
         let strLastEatenDate = setLastEatenDate()
         let durInMinRow: IntRow? = form.rowBy(tag: "durInMin")
         let intDurationInMin = durInMinRow?.value
-        
         
         let newMeal = Meal(id: "", name: name!, photoUrl: " ", durationInMinutes:intDurationInMin!,lastEatenDate: strLastEatenDate, photoContent: imageBase64 )
         submitNewMeal(meal: newMeal!) { (error) in
@@ -142,6 +139,7 @@ class HomeMadeMealViewController: FormViewController, UINavigationControllerDele
         let lastEatenDate = dateFormatterGet.string(from: self.hmMeallastEatenDate)
         return lastEatenDate
     }
+    
     func resizeImage(_ image: UIImage) -> UIImage {
         var actualHeight = Float(image.size.height)
         var actualWidth = Float(image.size.width)
@@ -177,5 +175,4 @@ class HomeMadeMealViewController: FormViewController, UINavigationControllerDele
         UIGraphicsEndImageContext()
         return UIImage(data: imageData!) ?? UIImage()
     }
-    
 }

@@ -470,7 +470,7 @@
                     <navigationItem key="navigationItem" title="HOMEMADE MEALS" id="wOd-1g-jrn">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="U9a-dc-Wl6">
                             <connections>
-                                <segue destination="7fP-AB-ulQ" kind="presentation" id="ZdI-QC-sn5"/>
+                                <segue destination="y7b-QR-F6V" kind="show" id="eoB-EG-g3P"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -496,7 +496,7 @@
                     <navigationItem key="navigationItem" title="New Homemade Meal" id="07M-Xm-r2d">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="ihj-LC-5GU">
                             <connections>
-                                <action selector="cancel:" destination="y7b-QR-F6V" id="90K-9e-x88"/>
+                                <segue destination="tES-2t-bwc" kind="unwind" unwindAction="unwindToMealListWithSender:" id="h7V-4O-VmP"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="kHg-Ta-zGd">
@@ -513,7 +513,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4kN-hg-lgZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="tES-2t-bwc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3966" y="-421"/>
+            <point key="canvasLocation" x="2822" y="-421"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FN9-BO-WvL">
@@ -592,24 +592,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qJI-sr-brU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3921" y="-1373"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="KEr-eZ-uAj">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7fP-AB-ulQ" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lwo-8q-xL7">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="y7b-QR-F6V" kind="relationship" relationship="rootViewController" id="9GQ-GT-tMp"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sXj-BC-p7c" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2823" y="-421"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iCF-VR-spw">

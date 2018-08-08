@@ -59,8 +59,6 @@ class OutsideMealCrudViewController: FormViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    
     // MARK: - Navigation
     
     // Save new Meal
@@ -106,7 +104,7 @@ class OutsideMealCrudViewController: FormViewController {
             let jsonData = try encoder.encode(meal)
             // ... and set our request's HTTP body
             request.httpBody = jsonData
-            print("jsonData: ", String(data: request.httpBody!, encoding: .utf8) ?? "no body data")
+            // print("jsonData: ", String(data: request.httpBody!, encoding: .utf8) ?? "no body data")
         } catch {
             completion?(error)
         }

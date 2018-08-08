@@ -38,6 +38,7 @@ class HomemadeMealCollectionView: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = homemadeMealCollection.dequeueReusableCell(withReuseIdentifier: "homemadeMealCustomCell", for: indexPath) as! HomemadeMealCollectionViewCell
         cell.hmMealNameLabel.text = meals[indexPath.row].name
+        cell.hmMealImageView.image = #imageLiteral(resourceName: "HolderImage")
         loadImageForCell(urlStr: meals[indexPath.row].photoUrl, cell: cell)
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 0.5

@@ -34,6 +34,7 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource, U
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "outsideMealCustomCell", for: indexPath) as! OutsideMealCollectionViewCell
         cell.outsideMealNameLbl.text = outsideMeals[indexPath.row].name + " at " + outsideMeals[indexPath.row].restaurantName
+        cell.outsideMealImageView.image = #imageLiteral(resourceName: "HolderImage")
         //cell.outsideRestLabel.text = outsideMeals[indexPath.row].restaurantName
         //cell.outsideMealPriceLbl.text = "CDN$ " + String(outsideMeals[indexPath.row].price)
         loadImageForCell(urlStr: outsideMeals[indexPath.row].photoUrl, cell: cell)
@@ -44,22 +45,20 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    //override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath as IndexPath)
         self.performSegue(withIdentifier: "showOutsideMealDetailSegue", sender: cell)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showOutsideMealDetailSegue" {
-            //let detailsVC: HomemadeMealDetailViewController = segue.destination as! HomemadeMealDetailViewController
             let navController: UINavigationController = segue.destination as! UINavigationController
             let detailsVC: OutsideMealDetailViewController = navController.topViewController as! OutsideMealDetailViewController
-            //let detailsVC: HomemadeMealDetailViewController = navController. as! HomemadeMealDetailViewController
             let cell = sender as! OutsideMealCollectionViewCell
             let indexPath = self.collectionView!.indexPath(for: cell)
-            //detailsVC.lblHomemadeMealName.text = meals[(indexPath?.row)!].name
+            detailsVC.meal = outsideMeals[(indexPath?.row)!]
         }
     }
+    
     // MARK: Private methods
     
     private func loadMeals(){

@@ -19,9 +19,6 @@ class OutsideMealDetailViewController: UIViewController {
     
     @IBOutlet weak var lblOutsideMealName: UILabel!
     
-    @IBOutlet weak var lblOutsideMealResName: UILabel!
-    
-    
     @IBOutlet weak var lblOutsideMealPrice: UILabel!
     
     @IBOutlet weak var lblOutsideMealDate: UILabel!
@@ -33,10 +30,9 @@ class OutsideMealDetailViewController: UIViewController {
         super.viewDidLoad()
         cloudinary = CLDCloudinary(configuration: self.config)
         if meal != nil {
-            lblOutsideMealName.text = meal?.name
-            lblOutsideMealResName.text = meal?.restaurantName
+            lblOutsideMealName.text = (meal?.name)! + " at " + (meal?.restaurantName)!
             let price:String = String(format:"%.2f", (meal?.price)!)
-            lblOutsideMealPrice.text = price  + "CDN"
+            lblOutsideMealPrice.text = price  + " CDN"
             lblOutsideMealDate.text = calculatetimePassed(lastEatenDate: (meal?.lastEatenDate)!)
             imgViewerOutsideMeal.image = #imageLiteral(resourceName: "HolderImage")
             loadImageForDetail(urlStr: (meal?.photoUrl)!, imgViewer: imgViewerOutsideMeal)
@@ -68,8 +64,10 @@ class OutsideMealDetailViewController: UIViewController {
         let aDate = dateFormatter.date(from: lastEatenDate)
         let timeInterval = aDate?.timeIntervalSinceNow
         let dateComponentsFormatter = DateComponentsFormatter()
+        dateComponentsFormatter.unitsStyle = .full
+        dateComponentsFormatter.allowedUnits = [.year, .month, .weekOfMonth, .day]
         let dateString = dateComponentsFormatter.string(from: abs(timeInterval!))
-        let strDate:String = dateString!
+        let strDate:String = dateString! + " ago"
         return strDate
     }
     private func loadImageForDetail(urlStr: String, imgViewer: UIImageView!) {
@@ -95,8 +93,6 @@ class OutsideMealDetailViewController: UIViewController {
                 
             })
         }catch {
-            
-            
         }
     }
     

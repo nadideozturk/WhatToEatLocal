@@ -12,6 +12,8 @@
 		8B02CF0A202A69C400EAB35C /* HomemadeMealCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02CF09202A69C400EAB35C /* HomemadeMealCollectionView.swift */; };
 		8B02CF0E202B71D200EAB35C /* HomeMadeMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02CF0D202B71D200EAB35C /* HomeMadeMealViewController.swift */; };
 		8B129B88201D2B6E000FDD00 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B129B87201D2B6E000FDD00 /* Meal.swift */; };
+		8B258B5D212FD5DA00A6736D /* HomemadeMealEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B258B5C212FD5DA00A6736D /* HomemadeMealEditViewController.swift */; };
+		8B258B5F212FD60900A6736D /* OutsideMealEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B258B5E212FD60900A6736D /* OutsideMealEditViewController.swift */; };
 		8B28221A208FF2CE0058A6BC /* OutsideMealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B282219208FF2CE0058A6BC /* OutsideMealCollectionViewCell.swift */; };
 		8B28221C208FF93C0058A6BC /* OutsideMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B28221B208FF93C0058A6BC /* OutsideMeal.swift */; };
 		8B2D70AE202A5BDF00404F8C /* HomemadeMealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2D70AD202A5BDF00404F8C /* HomemadeMealCollectionViewCell.swift */; };
@@ -47,6 +49,8 @@
 		8B02CF09202A69C400EAB35C /* HomemadeMealCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomemadeMealCollectionView.swift; sourceTree = "<group>"; };
 		8B02CF0D202B71D200EAB35C /* HomeMadeMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMadeMealViewController.swift; sourceTree = "<group>"; };
 		8B129B87201D2B6E000FDD00 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		8B258B5C212FD5DA00A6736D /* HomemadeMealEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomemadeMealEditViewController.swift; sourceTree = "<group>"; };
+		8B258B5E212FD60900A6736D /* OutsideMealEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutsideMealEditViewController.swift; sourceTree = "<group>"; };
 		8B282219208FF2CE0058A6BC /* OutsideMealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutsideMealCollectionViewCell.swift; sourceTree = "<group>"; };
 		8B28221B208FF93C0058A6BC /* OutsideMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutsideMeal.swift; sourceTree = "<group>"; };
 		8B2D70AD202A5BDF00404F8C /* HomemadeMealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomemadeMealCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 				8BC5D900200B3500008C7C90 /* AppDelegate.swift */,
 				8BC5D904200B3500008C7C90 /* OutsideMealViewController.swift */,
 				8BC5D906200B3500008C7C90 /* Main.storyboard */,
+				8B258B5E212FD60900A6736D /* OutsideMealEditViewController.swift */,
+				8B258B5C212FD5DA00A6736D /* HomemadeMealEditViewController.swift */,
 				8BC5D909200B3500008C7C90 /* Assets.xcassets */,
 				8BC5D90E200B3500008C7C90 /* Info.plist */,
 				8B129B87201D2B6E000FDD00 /* Meal.swift */,
@@ -397,11 +403,13 @@
 				8B28221A208FF2CE0058A6BC /* OutsideMealCollectionViewCell.swift in Sources */,
 				8B66D5AF208EE0D1006F41EE /* BackendConfig.swift in Sources */,
 				8BC5D905200B3500008C7C90 /* OutsideMealViewController.swift in Sources */,
+				8B258B5F212FD60900A6736D /* OutsideMealEditViewController.swift in Sources */,
 				8B02CF0A202A69C400EAB35C /* HomemadeMealCollectionView.swift in Sources */,
 				8B2D70AE202A5BDF00404F8C /* HomemadeMealCollectionViewCell.swift in Sources */,
 				8B02CF0E202B71D200EAB35C /* HomeMadeMealViewController.swift in Sources */,
 				8BC5D901200B3500008C7C90 /* AppDelegate.swift in Sources */,
 				8BF7C14C20A65BBE005964D4 /* OutsideMealCrudViewController.swift in Sources */,
+				8B258B5D212FD5DA00A6736D /* HomemadeMealEditViewController.swift in Sources */,
 				8BEF17D22116FC440096B154 /* OutsideMealDetailViewController.swift in Sources */,
 				8BEF17D02116E1A80096B154 /* HomemadeMealDetailViewController.swift in Sources */,
 			);

@@ -264,7 +264,12 @@
                         <viewLayoutGuide key="safeArea" id="Xuh-70-dfr"/>
                     </view>
                     <navigationItem key="navigationItem" title="Outside Meal Detail" id="XXE-gI-wXH">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="LBC-gR-o33"/>
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="vhw-g9-Nxp"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="r2W-eE-vPt">
+                            <connections>
+                                <segue destination="8Wr-dF-YvR" kind="show" id="k3q-jS-QU3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="imgViewerOutsideMeal" destination="Iaj-dS-Ivk" id="SLa-ST-iHi"/>
@@ -276,6 +281,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pap-Js-Oxm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2557.5999999999999" y="1033.1334332833585"/>
+        </scene>
+        <!--Outside Meal Edit View Controller-->
+        <scene sceneID="Faa-Hl-eQq">
+            <objects>
+                <viewController id="8Wr-dF-YvR" customClass="OutsideMealEditViewController" customModule="WhatToEatLocal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xvj-tk-QQ4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="H5S-J8-8lY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aMb-Nv-Z2d">
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="afH-QZ-CRO"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b0l-tk-QIT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3494" y="1033"/>
         </scene>
         <!--AutoSignin-->
         <scene sceneID="x5w-TO-4GJ">
@@ -550,7 +573,7 @@
             </objects>
             <point key="canvasLocation" x="960.79999999999995" y="328.78560719640183"/>
         </scene>
-        <!--Homemade Meal Detail View Controller-->
+        <!--Homemade Meal Detail-->
         <scene sceneID="aWK-pu-QGE">
             <objects>
                 <viewController id="wlI-av-1uq" customClass="HomemadeMealDetailViewController" customModule="WhatToEatLocal" sceneMemberID="viewController">
@@ -610,7 +633,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CdZ-5T-vcb"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9SB-L6-f53"/>
+                    <navigationItem key="navigationItem" title="Homemade Meal Detail" id="9SB-L6-f53">
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="ZRn-ZI-mZr"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="pGf-JA-uWN">
+                            <connections>
+                                <segue destination="GYx-hZ-xg7" kind="show" id="nss-Vz-284"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imgViewHomeMadeMealD" destination="J7g-Td-tXX" id="1yY-Yi-4uW"/>
                         <outlet property="lblDurInMinHMMD" destination="7Z6-Wj-4cN" id="OxF-ib-q75"/>
@@ -621,6 +651,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qJI-sr-brU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2558" y="-1039"/>
+        </scene>
+        <!--Homemade Meal Edit View Controller-->
+        <scene sceneID="a1l-jp-TCG">
+            <objects>
+                <viewController id="GYx-hZ-xg7" customClass="HomemadeMealEditViewController" customModule="WhatToEatLocal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kuq-sy-nfF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="fOw-CV-yNz"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="OCF-Mc-nHW">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="JNe-Jm-c2h"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vez-NA-iES" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3476" y="-1039"/>
         </scene>
     </scenes>
     <resources>

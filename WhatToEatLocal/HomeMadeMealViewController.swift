@@ -19,8 +19,7 @@ class HomeMadeMealViewController: FormViewController, UINavigationControllerDele
     var hmMeallastEatenDate = Date()
     
     func updateButtonEnabled() {
-        let validationError = self.form.validate();
-        saveButton.isEnabled = validationError.isEmpty;
+        saveButton.isEnabled = self.form.isValid()
     }
     
     override func viewDidLoad() {
@@ -43,7 +42,6 @@ class HomeMadeMealViewController: FormViewController, UINavigationControllerDele
                 row.add(rule: RuleRequired())
                 row.add(rule: RuleMinLength(minLength: 3))
                 row.add(rule: RuleMaxLength(maxLength: 30))
-                row.validationOptions = .validatesOnChange
                 }.cellUpdate { cell, row in
                     cell.textField.textAlignment = .left
                     if !row.isValid {
@@ -55,8 +53,14 @@ class HomeMadeMealViewController: FormViewController, UINavigationControllerDele
                 row.title = "Duration in minutes"
                 row.placeholder = "Enter duration here"
                 row.tag = "durInMin"
+                row.add(rule: RuleRequired())
+                row.add(rule: RuleGreaterThan(min: 1))
+                row.add(rule: RuleSmallerThan(max: 600))
                 }.cellUpdate { cell, row in
                     cell.textField.textAlignment = .left
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
                     self.updateButtonEnabled()
             }
             <<< DateRow(){ row in

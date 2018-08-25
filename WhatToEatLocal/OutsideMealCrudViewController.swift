@@ -65,6 +65,7 @@ class OutsideMealCrudViewController: FormViewController {
                 row.title = "Price of Meal"
                 row.placeholder = "Enter price here"
                 row.tag = "price"
+                row.useFormatterDuringInput = false
                 row.add(rule: RuleRequired())
                 row.add(rule: RuleGreaterThan(min: 0))
                 row.add(rule: RuleSmallerThan(max: 9999))

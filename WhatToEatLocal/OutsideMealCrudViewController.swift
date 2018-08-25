@@ -17,6 +17,11 @@ class OutsideMealCrudViewController: FormViewController {
     var lastEatenDate = Date()
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
+    func updateButtonEnabled() {
+        let validationError = self.form.validate();
+        saveButton.isEnabled = validationError.isEmpty;
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         form +++ Section()
@@ -24,33 +29,63 @@ class OutsideMealCrudViewController: FormViewController {
                 $0.title = "Pick up an image"
                 $0.sourceTypes = [.PhotoLibrary, .SavedPhotosAlbum, .Camera]
                 $0.clearAction = .no
-                }
-                .cellUpdate { cell, row in
+                }.cellUpdate { cell, row in
                     cell.accessoryView?.layer.cornerRadius = 17
                     cell.accessoryView?.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+                    self.updateButtonEnabled()
             }
             <<< TextRow(){ row in
-                row.title = "Text Row"
+                row.title = "Meal Name"
                 row.placeholder = "Enter meal name here"
                 row.tag = "mealName"
-        }
+                row.add(rule: RuleRequired())
+                row.add(rule: RuleMinLength(minLength: 3))
+                row.add(rule: RuleMaxLength(maxLength: 30))
+                row.validationOptions = .validatesOnChange
+                }.cellUpdate { cell, row in
+                    cell.textField.textAlignment = .left
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
+                    self.updateButtonEnabled()
+            }
             <<< TextRow(){ row in
                 row.title = "Restaurant Name"
                 row.placeholder = "Enter restaurant name here"
                 row.tag = "restaurantName"
+                row.add(rule: RuleRequired())
+                row.add(rule: RuleMinLength(minLength: 3))
+                row.add(rule: RuleMaxLength(maxLength: 30))
+                }.cellUpdate { cell, row in
+                    cell.textField.textAlignment = .left
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
+                    self.updateButtonEnabled()
             }
             <<< DecimalRow(){ row in
                 row.title = "Price of Meal"
                 row.placeholder = "Enter price here"
                 row.tag = "price"
+                row.add(rule: RuleRequired())
+                row.add(rule: RuleGreaterThan(min: 0))
+                row.add(rule: RuleSmallerThan(max: 9999))
+                }.cellUpdate { cell, row in
+                    cell.textField.textAlignment = .left
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
+                    self.updateButtonEnabled()
             }
             <<< DateRow(){ row in
                 row.title = "Last eaten date"
-                row.minimumDate = Date()
+                row.minimumDate = Calendar.current.date(byAdding: .year, value: -5, to: Date())!
+                row.maximumDate = Date()
                 row.tag = "lastEatenDate"
                 row.value = Date()
                 }.onChange({ (row) in
                     self.lastEatenDate = row.value!  //updating the value on change
+                    self.updateButtonEnabled()
                 })
     }
 

@@ -18,6 +18,11 @@ class HomeMadeMealViewController: FormViewController, UINavigationControllerDele
     @IBOutlet weak var saveButton: UIBarButtonItem!
     var hmMeallastEatenDate = Date()
     
+    func updateButtonEnabled() {
+        let validationError = self.form.validate();
+        saveButton.isEnabled = validationError.isEmpty;
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         form +++ Section()
@@ -29,24 +34,40 @@ class HomeMadeMealViewController: FormViewController, UINavigationControllerDele
                 .cellUpdate { cell, row in
                     cell.accessoryView?.layer.cornerRadius = 17
                     cell.accessoryView?.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
-            }
+                    self.updateButtonEnabled()
+                }
             <<< TextRow(){ row in
-                row.title = "Text Row"
+                row.title = "Meal Name"
                 row.placeholder = "Enter meal name here"
                 row.tag = "homemadeMealName"
+                row.add(rule: RuleRequired())
+                row.add(rule: RuleMinLength(minLength: 3))
+                row.add(rule: RuleMaxLength(maxLength: 30))
+                row.validationOptions = .validatesOnChange
+                }.cellUpdate { cell, row in
+                    cell.textField.textAlignment = .left
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
+                    self.updateButtonEnabled()
             }
             <<< IntRow(){ row in
                 row.title = "Duration in minutes"
                 row.placeholder = "Enter duration here"
                 row.tag = "durInMin"
+                }.cellUpdate { cell, row in
+                    cell.textField.textAlignment = .left
+                    self.updateButtonEnabled()
             }
             <<< DateRow(){ row in
                 row.title = "Last eaten date"
-                row.minimumDate = Date()
+                row.minimumDate = Calendar.current.date(byAdding: .year, value: -5, to: Date())!
+                row.maximumDate = Date()
                 row.tag = "hmMeallastEatenDate"
                 row.value = Date()
                 }.onChange({ (row) in
                     self.hmMeallastEatenDate = row.value!  //updating the value on change
+                    self.updateButtonEnabled()
                 })
     }
 

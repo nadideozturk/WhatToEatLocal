@@ -12,6 +12,7 @@
 		8B02CF0A202A69C400EAB35C /* HomemadeMealCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02CF09202A69C400EAB35C /* HomemadeMealCollectionView.swift */; };
 		8B02CF0E202B71D200EAB35C /* HomeMadeMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02CF0D202B71D200EAB35C /* HomeMadeMealViewController.swift */; };
 		8B129B88201D2B6E000FDD00 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B129B87201D2B6E000FDD00 /* Meal.swift */; };
+		8B20411E2131FD5B00CEB87A /* EurekaFormExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20411D2131FD5B00CEB87A /* EurekaFormExtension.swift */; };
 		8B258B5D212FD5DA00A6736D /* HomemadeMealEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B258B5C212FD5DA00A6736D /* HomemadeMealEditViewController.swift */; };
 		8B258B5F212FD60900A6736D /* OutsideMealEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B258B5E212FD60900A6736D /* OutsideMealEditViewController.swift */; };
 		8B28221A208FF2CE0058A6BC /* OutsideMealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B282219208FF2CE0058A6BC /* OutsideMealCollectionViewCell.swift */; };
@@ -49,6 +50,7 @@
 		8B02CF09202A69C400EAB35C /* HomemadeMealCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomemadeMealCollectionView.swift; sourceTree = "<group>"; };
 		8B02CF0D202B71D200EAB35C /* HomeMadeMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMadeMealViewController.swift; sourceTree = "<group>"; };
 		8B129B87201D2B6E000FDD00 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		8B20411D2131FD5B00CEB87A /* EurekaFormExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EurekaFormExtension.swift; sourceTree = "<group>"; };
 		8B258B5C212FD5DA00A6736D /* HomemadeMealEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomemadeMealEditViewController.swift; sourceTree = "<group>"; };
 		8B258B5E212FD60900A6736D /* OutsideMealEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutsideMealEditViewController.swift; sourceTree = "<group>"; };
 		8B282219208FF2CE0058A6BC /* OutsideMealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutsideMealCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				8BF7C14B20A65BBE005964D4 /* OutsideMealCrudViewController.swift */,
 				8BEF17CF2116E1A80096B154 /* HomemadeMealDetailViewController.swift */,
 				8BEF17D12116FC440096B154 /* OutsideMealDetailViewController.swift */,
+				8B20411D2131FD5B00CEB87A /* EurekaFormExtension.swift */,
 			);
 			path = WhatToEatLocal;
 			sourceTree = "<group>";
@@ -201,8 +204,6 @@
 				8BC5D90F200B3501008C7C90 /* Sources */,
 				8BC5D910200B3501008C7C90 /* Frameworks */,
 				8BC5D911200B3501008C7C90 /* Resources */,
-				5FC002BEF22D1FE318C9DAA9 /* [CP] Embed Pods Frameworks */,
-				8959410FC2855527DD8A881C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -293,21 +294,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5FC002BEF22D1FE318C9DAA9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatToEatLocalTests/Pods-WhatToEatLocalTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		652940A1915AB6C84E023770 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -374,21 +360,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatToEatLocal/Pods-WhatToEatLocal-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8959410FC2855527DD8A881C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatToEatLocalTests/Pods-WhatToEatLocalTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -405,6 +376,7 @@
 				8BC5D905200B3500008C7C90 /* OutsideMealViewController.swift in Sources */,
 				8B258B5F212FD60900A6736D /* OutsideMealEditViewController.swift in Sources */,
 				8B02CF0A202A69C400EAB35C /* HomemadeMealCollectionView.swift in Sources */,
+				8B20411E2131FD5B00CEB87A /* EurekaFormExtension.swift in Sources */,
 				8B2D70AE202A5BDF00404F8C /* HomemadeMealCollectionViewCell.swift in Sources */,
 				8B02CF0E202B71D200EAB35C /* HomeMadeMealViewController.swift in Sources */,
 				8BC5D901200B3500008C7C90 /* AppDelegate.swift in Sources */,

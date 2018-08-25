@@ -18,8 +18,7 @@ class OutsideMealCrudViewController: FormViewController {
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     func updateButtonEnabled() {
-        let validationError = self.form.validate();
-        saveButton.isEnabled = validationError.isEmpty;
+        saveButton.isEnabled = self.form.isValid()
     }
     
     override func viewDidLoad() {
@@ -41,7 +40,6 @@ class OutsideMealCrudViewController: FormViewController {
                 row.add(rule: RuleRequired())
                 row.add(rule: RuleMinLength(minLength: 3))
                 row.add(rule: RuleMaxLength(maxLength: 30))
-                row.validationOptions = .validatesOnChange
                 }.cellUpdate { cell, row in
                     cell.textField.textAlignment = .left
                     if !row.isValid {

@@ -18,7 +18,7 @@ class HomeMadeMealViewController: FormViewController, UINavigationControllerDele
     @IBOutlet weak var saveButton: UIBarButtonItem!
     var hmMeallastEatenDate = Date()
     
-    func updateButtonEnabled() {
+    func updateSaveButtonEnabled() {
         saveButton.isEnabled = self.form.isValid()
     }
     
@@ -33,7 +33,7 @@ class HomeMadeMealViewController: FormViewController, UINavigationControllerDele
                 .cellUpdate { cell, row in
                     cell.accessoryView?.layer.cornerRadius = 17
                     cell.accessoryView?.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
-                    self.updateButtonEnabled()
+                    self.updateSaveButtonEnabled()
                 }
             <<< TextRow(){ row in
                 row.title = "Meal Name"
@@ -47,7 +47,7 @@ class HomeMadeMealViewController: FormViewController, UINavigationControllerDele
                     if !row.isValid {
                         cell.titleLabel?.textColor = .red
                     }
-                    self.updateButtonEnabled()
+                    self.updateSaveButtonEnabled()
             }
             <<< IntRow(){ row in
                 row.title = "Duration in minutes"
@@ -61,7 +61,7 @@ class HomeMadeMealViewController: FormViewController, UINavigationControllerDele
                     if !row.isValid {
                         cell.titleLabel?.textColor = .red
                     }
-                    self.updateButtonEnabled()
+                    self.updateSaveButtonEnabled()
             }
             <<< DateRow(){ row in
                 row.title = "Last eaten date"
@@ -71,7 +71,7 @@ class HomeMadeMealViewController: FormViewController, UINavigationControllerDele
                 row.value = Date()
                 }.onChange({ (row) in
                     self.hmMeallastEatenDate = row.value!  //updating the value on change
-                    self.updateButtonEnabled()
+                    self.updateSaveButtonEnabled()
                 })
     }
 
@@ -89,6 +89,12 @@ class HomeMadeMealViewController: FormViewController, UINavigationControllerDele
     
     // Save new Meal
     @IBAction func saveMeal(_ sender: UIBarButtonItem) {
+        self.form.validate()
+        updateSaveButtonEnabled()
+        if (!self.form.isValid()) {
+            return
+        }
+        
         let row: TextRow? = form.rowBy(tag: "homemadeMealName")
         let name = row?.value
         print(name ?? "Empty outside meal name")

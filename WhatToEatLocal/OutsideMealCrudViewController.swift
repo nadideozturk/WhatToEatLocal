@@ -17,7 +17,7 @@ class OutsideMealCrudViewController: FormViewController {
     var lastEatenDate = Date()
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
-    func updateButtonEnabled() {
+    func updateSaveButtonEnabled() {
         saveButton.isEnabled = self.form.isValid()
     }
     
@@ -31,7 +31,7 @@ class OutsideMealCrudViewController: FormViewController {
                 }.cellUpdate { cell, row in
                     cell.accessoryView?.layer.cornerRadius = 17
                     cell.accessoryView?.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
-                    self.updateButtonEnabled()
+                    self.updateSaveButtonEnabled()
             }
             <<< TextRow(){ row in
                 row.title = "Meal Name"
@@ -45,7 +45,7 @@ class OutsideMealCrudViewController: FormViewController {
                     if !row.isValid {
                         cell.titleLabel?.textColor = .red
                     }
-                    self.updateButtonEnabled()
+                    self.updateSaveButtonEnabled()
             }
             <<< TextRow(){ row in
                 row.title = "Restaurant Name"
@@ -59,7 +59,7 @@ class OutsideMealCrudViewController: FormViewController {
                     if !row.isValid {
                         cell.titleLabel?.textColor = .red
                     }
-                    self.updateButtonEnabled()
+                    self.updateSaveButtonEnabled()
             }
             <<< DecimalRow(){ row in
                 row.title = "Price of Meal"
@@ -74,7 +74,7 @@ class OutsideMealCrudViewController: FormViewController {
                     if !row.isValid {
                         cell.titleLabel?.textColor = .red
                     }
-                    self.updateButtonEnabled()
+                    self.updateSaveButtonEnabled()
             }
             <<< DateRow(){ row in
                 row.title = "Last eaten date"
@@ -84,7 +84,7 @@ class OutsideMealCrudViewController: FormViewController {
                 row.value = Date()
                 }.onChange({ (row) in
                     self.lastEatenDate = row.value!  //updating the value on change
-                    self.updateButtonEnabled()
+                    self.updateSaveButtonEnabled()
                 })
     }
 
@@ -97,6 +97,12 @@ class OutsideMealCrudViewController: FormViewController {
     
     // Save new Meal
     @IBAction func saveOutsideMeal(_ sender: UIBarButtonItem) {
+        self.form.validate()
+        updateSaveButtonEnabled()
+        if (!self.form.isValid()) {
+            return
+        }
+        
         let row: TextRow? = form.rowBy(tag: "mealName")
         let name = row?.value
         print(name ?? "Empty outside meal name")

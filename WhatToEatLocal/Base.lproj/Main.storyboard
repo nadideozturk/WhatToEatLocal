@@ -153,7 +153,9 @@
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <navigationItem key="navigationItem" title="OUTSIDE MEALS" id="AeJ-v1-ijM">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="RVK-oU-vEW"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="RVK-oU-vEW">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="tGc-uc-40E">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -182,12 +184,14 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Outside Meal" id="N46-3a-JGT">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="se7-gj-JVQ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cancelOutsideMeal:" destination="uWw-Zz-hxA" id="d30-OR-1GZ"/>
                                 <segue destination="cb7-z6-bJQ" kind="unwind" unwindAction="unwindToOutsideMealListWithSender:" id="Hae-Eq-47E"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="MKh-b5-La4">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="saveOutsideMeal:" destination="uWw-Zz-hxA" id="d8a-RC-XuL"/>
                             </connections>
@@ -264,8 +268,11 @@
                         <viewLayoutGuide key="safeArea" id="Xuh-70-dfr"/>
                     </view>
                     <navigationItem key="navigationItem" title="Outside Meal Detail" id="XXE-gI-wXH">
-                        <barButtonItem key="backBarButtonItem" title="Cancel" id="vhw-g9-Nxp"/>
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="vhw-g9-Nxp">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="r2W-eE-vPt">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="8Wr-dF-YvR" kind="show" id="k3q-jS-QU3"/>
                             </connections>
@@ -293,7 +300,9 @@
                         <viewLayoutGuide key="safeArea" id="H5S-J8-8lY"/>
                     </view>
                     <navigationItem key="navigationItem" id="aMb-Nv-Z2d">
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="afH-QZ-CRO"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="afH-QZ-CRO">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0l-tk-QIT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -475,8 +484,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="HOMEMADE MEALS" id="wOd-1g-jrn">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="5Jx-Vb-RZI"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="5Jx-Vb-RZI">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="U9a-dc-Wl6">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="y7b-QR-F6V" kind="show" id="eoB-EG-g3P"/>
                             </connections>
@@ -503,11 +515,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Homemade Meal" id="07M-Xm-r2d">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="ihj-LC-5GU">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="tES-2t-bwc" kind="unwind" unwindAction="unwindToMealListWithSender:" id="h7V-4O-VmP"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="kHg-Ta-zGd">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="saveMeal:" destination="y7b-QR-F6V" id="TXk-0K-Jy8"/>
                             </connections>
@@ -634,8 +648,11 @@
                         <viewLayoutGuide key="safeArea" id="CdZ-5T-vcb"/>
                     </view>
                     <navigationItem key="navigationItem" title="Homemade Meal Detail" id="9SB-L6-f53">
-                        <barButtonItem key="backBarButtonItem" title="Cancel" id="ZRn-ZI-mZr"/>
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="ZRn-ZI-mZr">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="pGf-JA-uWN">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="GYx-hZ-xg7" kind="show" id="nss-Vz-284"/>
                             </connections>
@@ -663,7 +680,9 @@
                         <viewLayoutGuide key="safeArea" id="fOw-CV-yNz"/>
                     </view>
                     <navigationItem key="navigationItem" id="OCF-Mc-nHW">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="JNe-Jm-c2h"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="JNe-Jm-c2h">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vez-NA-iES" userLabel="First Responder" sceneMemberID="firstResponder"/>

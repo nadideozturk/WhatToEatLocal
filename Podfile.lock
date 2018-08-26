@@ -23,14 +23,14 @@ PODS:
   - GTMSessionFetcher/Core (1.1.15)
   - GTMSessionFetcher/Full (1.1.15):
     - GTMSessionFetcher/Core (= 1.1.15)
-  - ImageRow (3.0.0):
+  - ImageRow (3.1.0):
     - Eureka (~> 4.0)
 
 DEPENDENCIES:
   - Cloudinary (~> 2.0)
   - Eureka
   - GoogleSignIn
-  - ImageRow (~> 3.0)
+  - ImageRow (~> 3.1.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -51,8 +51,8 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
-  ImageRow: 048123c296de9a6ac3998c415a6706c45ce480af
+  ImageRow: 1ea483078bfa3d880a7fc76fdfcddfd5f29a9e6b
 
-PODFILE CHECKSUM: ecd65678214a857e1c922f01499299df001832a9
+PODFILE CHECKSUM: d24e082ee7a5c724d7f0086865854d0942cce43e
 
 COCOAPODS: 1.5.3

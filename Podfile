@@ -13,7 +13,7 @@ target 'WhatToEatLocal' do
   use_frameworks!
   
   pod 'Eureka'
-  pod 'ImageRow', '~> 3.0'
+  pod 'ImageRow', '~> 3.1.0'
   
   pod 'Cloudinary', '~> 2.0'
   

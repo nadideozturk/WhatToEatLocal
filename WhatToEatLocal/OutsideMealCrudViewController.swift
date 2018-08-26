@@ -28,6 +28,8 @@ class OutsideMealCrudViewController: FormViewController {
                 $0.title = "Pick up an image"
                 $0.sourceTypes = [.PhotoLibrary, .SavedPhotosAlbum, .Camera]
                 $0.clearAction = .no
+                $0.allowEditor = true
+                $0.useEditedImage = true
                 }.cellUpdate { cell, row in
                     cell.accessoryView?.layer.cornerRadius = 17
                     cell.accessoryView?.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
@@ -182,8 +184,8 @@ class OutsideMealCrudViewController: FormViewController {
     func resizeImage(_ image: UIImage) -> UIImage {
         var actualHeight = Float(image.size.height)
         var actualWidth = Float(image.size.width)
-        let maxHeight: Float = 2 * 280.0 // TODO Read from storyboard somehow
-        let maxWidth: Float = 2 * 375.0 // TODO Read from storyboard somehow
+        let maxHeight: Float = 500.0
+        let maxWidth: Float = 500.0
         var imgRatio: Float = actualWidth / actualHeight
         let maxRatio: Float = maxWidth / maxHeight
         let compressionQuality: Float = 0.9

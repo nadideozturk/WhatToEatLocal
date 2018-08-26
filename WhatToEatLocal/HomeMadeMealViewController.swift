@@ -174,12 +174,11 @@ class HomeMadeMealViewController: FormViewController, UINavigationControllerDele
     func resizeImage(_ image: UIImage) -> UIImage {
         var actualHeight = Float(image.size.height)
         var actualWidth = Float(image.size.width)
-        let maxHeight: Float = 300.0
-        let maxWidth: Float = 400.0
+        let maxHeight: Float = 2 * 280.0 // TODO Read from storyboard somehow
+        let maxWidth: Float = 2 * 375.0 // TODO Read from storyboard somehow
         var imgRatio: Float = actualWidth / actualHeight
         let maxRatio: Float = maxWidth / maxHeight
-        let compressionQuality: Float = 0.5
-        //50 percent compression
+        let compressionQuality: Float = 0.9
         if actualHeight > maxHeight || actualWidth > maxWidth {
             if imgRatio < maxRatio {
                 //adjust width according to maxHeight

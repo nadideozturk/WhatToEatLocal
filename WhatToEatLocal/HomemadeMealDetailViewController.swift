@@ -12,13 +12,10 @@ import Cloudinary
 class HomemadeMealDetailViewController: UIViewController {
     
     var meal:Meal? = nil
-    
-
 
     @IBOutlet weak var lblHomemadeMealName: UILabel!
     
     @IBOutlet weak var imgViewHomeMadeMealD: UIImageView!
-    
     
     @IBOutlet weak var lblLastEatenDateHMMD: UILabel!
     
@@ -95,7 +92,6 @@ class HomemadeMealDetailViewController: UIViewController {
                     catch _ as NSError{
                     }
                 }
-                
             })
         }catch {
         }

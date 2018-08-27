@@ -27,7 +27,7 @@ class HomeMadeMealViewController: FormViewController, UINavigationControllerDele
         form +++ Section()
             <<< ImageRow("homemadeMealImage") {
                 $0.title = "Pick up an image"
-                $0.sourceTypes = [.PhotoLibrary, .SavedPhotosAlbum, .Camera]
+                $0.sourceTypes = [.PhotoLibrary, .SavedPhotosAlbum]
                 $0.clearAction = .no
                 $0.allowEditor = true
                 $0.useEditedImage = true

@@ -245,8 +245,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iaj-dS-Ivk">
-                                <rect key="frame" x="62.5" y="94" width="250" height="250"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iaj-dS-Ivk">
+                                <rect key="frame" x="62.5" y="84" width="250" height="250"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.97920274172980748" blue="0.9168109669192297" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -254,7 +254,7 @@
                             <constraint firstItem="Tox-dZ-GGc" firstAttribute="leading" secondItem="laQ-V0-IUt" secondAttribute="leadingMargin" id="0mV-bT-tmw"/>
                             <constraint firstItem="i73-xO-V27" firstAttribute="trailing" secondItem="rKp-5f-Z9b" secondAttribute="trailing" id="8Aw-fT-OM7"/>
                             <constraint firstItem="Iaj-dS-Ivk" firstAttribute="centerX" secondItem="Tox-dZ-GGc" secondAttribute="centerX" id="CdQ-FK-b6b"/>
-                            <constraint firstItem="Iaj-dS-Ivk" firstAttribute="top" secondItem="Xuh-70-dfr" secondAttribute="top" constant="30" id="MOQ-QW-0Dh"/>
+                            <constraint firstItem="Iaj-dS-Ivk" firstAttribute="top" secondItem="Xuh-70-dfr" secondAttribute="top" id="MOQ-QW-0Dh"/>
                             <constraint firstItem="Tox-dZ-GGc" firstAttribute="trailing" secondItem="i73-xO-V27" secondAttribute="trailing" id="Mmw-l2-P22"/>
                             <constraint firstItem="i73-xO-V27" firstAttribute="top" secondItem="Tox-dZ-GGc" secondAttribute="bottom" constant="31" id="NWF-nc-zfr"/>
                             <constraint firstItem="rKp-5f-Z9b" firstAttribute="leading" secondItem="Xuh-70-dfr" secondAttribute="leading" constant="181" id="OCA-0B-bBH"/>

@@ -30,7 +30,7 @@ class OutsideMealDetailViewController: UIViewController {
         super.viewDidLoad()
         cloudinary = CLDCloudinary(configuration: self.config)
         if meal != nil {
-            lblOutsideMealName.text = (meal?.name)! + " at " + (meal?.restaurantName)!
+            lblOutsideMealName.text = (meal?.name.capitalized)! + " at " + (meal?.restaurantName.capitalized)!
             let price:String = String(format:"%.2f", (meal?.price)!)
             lblOutsideMealPrice.text = price  + " CDN"
             lblOutsideMealDate.text = calculatetimePassed(lastEatenDate: (meal?.lastEatenDate)!)
@@ -67,7 +67,7 @@ class OutsideMealDetailViewController: UIViewController {
         dateComponentsFormatter.unitsStyle = .full
         dateComponentsFormatter.allowedUnits = [.year, .month, .weekOfMonth, .day]
         let dateString = dateComponentsFormatter.string(from: abs(timeInterval!))
-        let strDate:String = dateString! + " ago"
+        let strDate:String = (dateString?.uppercased())! + " AGO"
         return strDate
     }
     private func loadImageForDetail(urlStr: String, imgViewer: UIImageView!) {

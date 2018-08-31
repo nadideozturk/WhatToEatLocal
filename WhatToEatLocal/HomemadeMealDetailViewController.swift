@@ -29,11 +29,11 @@ class HomemadeMealDetailViewController: UIViewController {
         self.lblHomemadeMealName.text = meal?.name
         cloudinary = CLDCloudinary(configuration: self.config)
         if meal != nil {
-            lblHomemadeMealName.text = (meal?.name)!
+            lblHomemadeMealName.text = (meal?.name.capitalized)!
             //let price:String = String(format:"%.2f", (meal?.price)!)
             //lblOutsideMealPrice.text = price  + " CDN"
             let strDurInMin = String((meal?.durationInMinutes)!)
-            lblDurInMinHMMD.text = strDurInMin + " min"
+            lblDurInMinHMMD.text = strDurInMin + " MIN"
             lblLastEatenDateHMMD.text = calculatetimePassed(lastEatenDate: (meal?.lastEatenDate)!)
             imgViewHomeMadeMealD.image = #imageLiteral(resourceName: "HolderImage")
             loadImageForDetail(urlStr: (meal?.photoUrl)!, imgViewer: imgViewHomeMadeMealD)
@@ -68,7 +68,7 @@ class HomemadeMealDetailViewController: UIViewController {
         dateComponentsFormatter.unitsStyle = .full
         dateComponentsFormatter.allowedUnits = [.year, .month, .weekOfMonth, .day]
         let dateString = dateComponentsFormatter.string(from: abs(timeInterval!))
-        let strDate:String = dateString! + " ago"
+        let strDate:String = (dateString?.uppercased())! + " AGO"
         return strDate
     }
     

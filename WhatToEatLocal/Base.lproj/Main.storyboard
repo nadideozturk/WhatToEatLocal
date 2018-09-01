@@ -276,7 +276,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="r2W-eE-vPt">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="8Wr-dF-YvR" kind="show" id="k3q-jS-QU3"/>
+                                <action selector="editBtnClicked:" destination="BnN-aq-vbM" id="SEY-Xu-X18"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -285,6 +285,7 @@
                         <outlet property="lblOutsideMealDate" destination="i73-xO-V27" id="6ec-6e-Fpk"/>
                         <outlet property="lblOutsideMealName" destination="Tox-dZ-GGc" id="BQP-0y-Alu"/>
                         <outlet property="lblOutsideMealPrice" destination="rKp-5f-Z9b" id="8sC-fJ-Yvd"/>
+                        <segue destination="8Wr-dF-YvR" kind="show" identifier="showOutsideMealEditSegue" id="0uU-m5-0P8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pap-Js-Oxm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -298,6 +299,15 @@
                     <view key="view" contentMode="scaleToFill" id="xvj-tk-QQ4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Yw-UM-cFS">
+                                <rect key="frame" x="77" y="196" width="222" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="H5S-J8-8lY"/>
                     </view>
@@ -306,10 +316,13 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="lblOusideMealName" destination="3Yw-UM-cFS" id="NNw-kq-D2U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0l-tk-QIT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3494" y="1033"/>
+            <point key="canvasLocation" x="3493.5999999999999" y="1032.2338830584708"/>
         </scene>
         <!--AutoSignin-->
         <scene sceneID="x5w-TO-4GJ">
@@ -657,7 +670,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="pGf-JA-uWN">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="GYx-hZ-xg7" kind="show" id="nss-Vz-284"/>
+                                <action selector="editBtnClicked:" destination="wlI-av-1uq" id="HuC-hV-fI6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -666,6 +679,7 @@
                         <outlet property="lblDurInMinHMMD" destination="7Z6-Wj-4cN" id="OxF-ib-q75"/>
                         <outlet property="lblHomemadeMealName" destination="zbP-78-eor" id="rH9-eH-tSI"/>
                         <outlet property="lblLastEatenDateHMMD" destination="Wgb-BK-exW" id="krv-nl-l4s"/>
+                        <segue destination="GYx-hZ-xg7" kind="show" identifier="showHomemadeMealEditSegue" id="fiE-9i-tdX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qJI-sr-brU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -679,6 +693,15 @@
                     <view key="view" contentMode="scaleToFill" id="kuq-sy-nfF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="bla" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvB-78-Kwd">
+                                <rect key="frame" x="130" y="174" width="150" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="fOw-CV-yNz"/>
                     </view>
@@ -687,10 +710,13 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="lblHmmName" destination="lvB-78-Kwd" id="gra-MD-hyg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vez-NA-iES" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3476" y="-1039"/>
+            <point key="canvasLocation" x="3476" y="-1039.4302848575712"/>
         </scene>
     </scenes>
     <resources>

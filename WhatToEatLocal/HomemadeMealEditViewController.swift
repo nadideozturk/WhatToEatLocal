@@ -9,10 +9,15 @@
 import UIKit
 
 class HomemadeMealEditViewController: UIViewController {
-
+    
+    var meal:Meal? = nil
+    
+    
+    @IBOutlet weak var lblHmmName: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        lblHmmName.text = meal?.name
         // Do any additional setup after loading the view.
     }
 

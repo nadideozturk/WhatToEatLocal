@@ -9,10 +9,15 @@
 import UIKit
 
 class OutsideMealEditViewController: UIViewController {
-
+    
+    var  meal:OutsideMeal? = nil
+    
+    
+    @IBOutlet weak var lblOusideMealName: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.lblOusideMealName.text = meal?.name
         // Do any additional setup after loading the view.
     }
 

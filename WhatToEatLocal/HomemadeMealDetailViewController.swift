@@ -21,6 +21,11 @@ class HomemadeMealDetailViewController: UIViewController {
     
     @IBOutlet weak var lblDurInMinHMMD: UILabel!
     
+    
+    @IBAction func editBtnClicked(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "showHomemadeMealEditSegue", sender: UIBarButtonItem.self)
+    }
+    
     var config = CLDConfiguration(cloudName: "dv0qmj6vt", apiKey: "752346693282248")
     var cloudinary:CLDCloudinary! = nil
     
@@ -48,15 +53,15 @@ class HomemadeMealDetailViewController: UIViewController {
     }
     
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showHomemadeMealEditSegue" {
+            let editVC: HomemadeMealEditViewController = segue.destination as! HomemadeMealEditViewController
+            editVC.meal = self.meal
+        }
     }
-    */
+
     
     // MARK: - Private Functions
     func calculatetimePassed(lastEatenDate: String) -> String {
@@ -96,5 +101,4 @@ class HomemadeMealDetailViewController: UIViewController {
         }catch {
         }
     }
-
 }

@@ -26,6 +26,11 @@ class OutsideMealDetailViewController: UIViewController {
     
     @IBOutlet weak var imgViewerOutsideMeal: UIImageView!
     
+    
+    @IBAction func editBtnClicked(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "showOutsideMealEditSegue", sender: UIBarButtonItem.self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         cloudinary = CLDCloudinary(configuration: self.config)
@@ -47,15 +52,14 @@ class OutsideMealDetailViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showOutsideMealEditSegue" {
+            let editVC: OutsideMealEditViewController = segue.destination as! OutsideMealEditViewController
+            editVC.meal = self.meal
+        }
     }
-    */
     
     // MARK: - Private Functions
     func calculatetimePassed(lastEatenDate: String) -> String {

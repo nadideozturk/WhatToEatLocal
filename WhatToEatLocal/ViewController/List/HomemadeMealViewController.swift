@@ -153,6 +153,9 @@ class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, 
     // MARK: UISearchBar
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            searchBar.showsCancelButton = false
+        }
         self.filter(searchTerm: searchText)
         collectionView.reloadData()
     }
@@ -162,5 +165,19 @@ class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, 
         searchBar.resignFirstResponder()
         self.filter(searchTerm: "")
         collectionView.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        // Hide keyboard when search button is clicked
+        searchBar.resignFirstResponder()
+        searchBar.showsCancelButton = false
     }
 }

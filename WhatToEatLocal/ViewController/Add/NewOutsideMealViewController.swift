@@ -12,7 +12,7 @@ import ImageRow
 import os.log
 import GoogleSignIn
 
-class OutsideMealCrudViewController: FormViewController {
+class NewOutsideMealViewController: FormViewController {
 
     var lastEatenDate = Date()
     @IBOutlet weak var saveButton: UIBarButtonItem!

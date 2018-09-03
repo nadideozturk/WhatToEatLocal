@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CHV-pU-Sun">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -13,7 +17,7 @@
             <objects>
                 <viewController title="Settings" id="mPk-8E-XcE" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h0A-kX-w2r">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Log out and settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHM-Pq-uFc">
@@ -38,7 +42,7 @@
             <objects>
                 <viewController title="Explore" id="xmY-35-qLb" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Reo-ka-9sB">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Explore new Meals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8IT-KJ-7ZX">
@@ -63,7 +67,7 @@
             <objects>
                 <viewController title="Suggestion" id="idk-BV-3gX" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xuF-Cz-YdK">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Suggestion Meals based your meals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GkP-Cf-xjU">
@@ -88,11 +92,11 @@
             <objects>
                 <viewController title="OUTSIDE MEALS" id="8rJ-Kc-sve" customClass="OutsideMealViewController" customModule="WhatToEatLocal" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Ru-Xo-BTw">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ooi-zQ-Te1">
                                     <size key="itemSize" width="170" height="170"/>
@@ -174,7 +178,7 @@
             <objects>
                 <viewController id="uWw-Zz-hxA" customClass="NewOutsideMealViewController" customModule="WhatToEatLocal" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eLe-el-nYn">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="mIk-ho-vwf"/>
@@ -209,11 +213,11 @@
             <objects>
                 <viewController id="BnN-aq-vbM" customClass="OutsideMealDetailViewController" customModule="WhatToEatLocal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="laQ-V0-IUt">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tox-dZ-GGc">
-                                <rect key="frame" x="18" y="394" width="565" height="60"/>
+                                <rect key="frame" x="18" y="461" width="340" height="60"/>
                                 <color key="backgroundColor" red="0.97638639299999996" green="1" blue="0.96460889380000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="dnE-gh-qyJ"/>
@@ -222,7 +226,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i73-xO-V27">
-                                <rect key="frame" x="52" y="476" width="364" height="60"/>
+                                <rect key="frame" x="52" y="543" width="139" height="60"/>
                                 <color key="backgroundColor" red="0.97638639299999996" green="1" blue="0.96460889380000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="z08-RX-Y44"/>
@@ -232,10 +236,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iaj-dS-Ivk">
-                                <rect key="frame" x="0.0" y="64" width="600" height="308"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rKp-5f-Z9b">
-                                <rect key="frame" x="439" y="476" width="129" height="60"/>
+                                <rect key="frame" x="214" y="543" width="129" height="60"/>
                                 <color key="backgroundColor" red="0.97638639299999996" green="1" blue="0.96460889380000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -293,7 +297,7 @@
             <objects>
                 <viewController id="8Wr-dF-YvR" customClass="OutsideMealEditViewController" customModule="WhatToEatLocal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xvj-tk-QQ4">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Yw-UM-cFS">
@@ -325,7 +329,7 @@
             <objects>
                 <viewController storyboardIdentifier="AutoSignin" title="AutoSignin" id="CHV-pU-Sun" customClass="AutoSigninViewController" customModule="WhatToEatLocal" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uoD-ds-uNF">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3f-eH-eW2">
@@ -375,7 +379,7 @@
             <objects>
                 <viewController storyboardIdentifier="SignIn" id="Xte-lS-e3m" customClass="SignInViewController" customModule="WhatToEatLocal" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sYq-U0-vuv">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBI-Xd-Ner">
@@ -452,7 +456,7 @@
             <objects>
                 <viewController title="New Meal" id="y7b-QR-F6V" customClass="NewHomemadeMealViewController" customModule="WhatToEatLocal" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="afS-by-U4v">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="N3q-gr-UmZ"/>
@@ -537,12 +541,11 @@
             <objects>
                 <viewController title="HOMEMADE MEALS" id="zdl-wK-b6d" customClass="HomemadeMealViewController" customModule="WhatToEatLocal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NLG-if-EdZ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ktb-dH-Jan">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ktb-dH-Jan">
+                                <rect key="frame" x="0.0" y="120" width="375" height="498"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NjT-xe-zRN">
                                     <size key="itemSize" width="170" height="170"/>
@@ -579,8 +582,21 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="23I-fe-bcG">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ktb-dH-Jan" firstAttribute="leading" secondItem="jQn-8b-NOC" secondAttribute="leading" id="1lz-Yg-HXK"/>
+                            <constraint firstItem="ktb-dH-Jan" firstAttribute="bottom" secondItem="jQn-8b-NOC" secondAttribute="bottom" id="aiR-Sa-Nfu"/>
+                            <constraint firstItem="23I-fe-bcG" firstAttribute="trailing" secondItem="jQn-8b-NOC" secondAttribute="trailing" id="hkx-ip-4hh"/>
+                            <constraint firstItem="23I-fe-bcG" firstAttribute="leading" secondItem="jQn-8b-NOC" secondAttribute="leading" id="iB0-RD-Zlo"/>
+                            <constraint firstItem="ktb-dH-Jan" firstAttribute="top" secondItem="23I-fe-bcG" secondAttribute="bottom" id="nPB-dB-o5d"/>
+                            <constraint firstItem="ktb-dH-Jan" firstAttribute="trailing" secondItem="jQn-8b-NOC" secondAttribute="trailing" id="wpI-Zl-ead"/>
+                            <constraint firstItem="23I-fe-bcG" firstAttribute="top" secondItem="jQn-8b-NOC" secondAttribute="top" id="xBW-sQ-lXZ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="jQn-8b-NOC"/>
                     </view>
                     <navigationItem key="navigationItem" title="HOMEMADE MEALS" id="poi-1V-z96">
@@ -596,24 +612,25 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="ktb-dH-Jan" id="Wja-bN-t8k"/>
+                        <outlet property="searchBar" destination="23I-fe-bcG" id="blA-UB-qoK"/>
                         <outlet property="view" destination="ktb-dH-Jan" id="9sU-e1-CVv"/>
                         <segue destination="wlI-av-1uq" kind="show" identifier="showHomemadeMealDetailsSegue" id="99B-85-jIr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RRw-uI-nB2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1780" y="-357"/>
+            <point key="canvasLocation" x="1780" y="-357.57121439280365"/>
         </scene>
         <!--Homemade Meal Detail-->
         <scene sceneID="aWK-pu-QGE">
             <objects>
                 <viewController id="wlI-av-1uq" customClass="HomemadeMealDetailViewController" customModule="WhatToEatLocal" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TtQ-Bc-gVl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Homemade meal Detail" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbP-78-eor">
-                                <rect key="frame" x="21" y="394" width="559" height="60"/>
+                                <rect key="frame" x="17" y="461" width="342" height="60"/>
                                 <color key="backgroundColor" red="0.97638639299999996" green="1" blue="0.96460889380000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Gkv-um-2Ra"/>
@@ -623,7 +640,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgb-BK-exW" userLabel="lblLastEatenDate">
-                                <rect key="frame" x="42" y="476" width="366" height="60"/>
+                                <rect key="frame" x="42" y="543" width="141" height="60"/>
                                 <color key="backgroundColor" red="0.97638639299999996" green="1" blue="0.96460889380000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="LP5-sY-1rC"/>
@@ -633,10 +650,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J7g-Td-tXX" userLabel="imgViewHomeMadeMeal">
-                                <rect key="frame" x="0.0" y="64" width="600" height="308"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Z6-Wj-4cN" userLabel="lblDurInMin">
-                                <rect key="frame" x="432" y="476" width="133" height="60"/>
+                                <rect key="frame" x="207" y="543" width="133" height="60"/>
                                 <color key="backgroundColor" red="0.97638639299999996" green="1" blue="0.96460889380000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="133" id="7D9-xf-cyE"/>
@@ -692,7 +709,7 @@
             <objects>
                 <viewController id="GYx-hZ-xg7" customClass="HomemadeMealEditViewController" customModule="WhatToEatLocal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kuq-sy-nfF">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="bla" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvB-78-Kwd">

@@ -11,32 +11,53 @@ import os.log
 import GoogleSignIn
 import Cloudinary
 
-class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
 
-    var homemadeMeals = [HomemadeMeal]()
+    private var homemadeMeals = [HomemadeMeal]()
+    private var filteredHomemadeMeals: [HomemadeMeal] = []
+    private var isFiltering: Bool = false
+    
+    private func getHomemadeMeals() -> [HomemadeMeal] {
+        return isFiltering ? filteredHomemadeMeals : homemadeMeals
+    }
     
     var config = CLDConfiguration(cloudName: "dv0qmj6vt", apiKey: "752346693282248")
     var cloudinary:CLDCloudinary! = nil
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         cloudinary = CLDCloudinary(configuration: self.config)
         collectionView.dataSource = self
         collectionView.delegate = self
+        searchBar.delegate = self
         loadMeals()
     }
     
+    func filter(searchTerm: String) {
+        if searchTerm.isEmpty {
+            isFiltering = false
+            filteredHomemadeMeals.removeAll()
+            return
+        }
+        
+        isFiltering = true
+        filteredHomemadeMeals = homemadeMeals.filter({
+             return $0.name.localizedCaseInsensitiveContains(searchTerm)
+        })
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return homemadeMeals.count
+        return getHomemadeMeals().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "homemadeMealCustomCell", for: indexPath) as! HomemadeMealCollectionViewCell
-        cell.hmMealNameLabel.text = homemadeMeals[indexPath.row].name
+        cell.hmMealNameLabel.text = getHomemadeMeals()[indexPath.row].name
         cell.hmMealImageView.image = #imageLiteral(resourceName: "HolderImage")
-        loadImageForCell(urlStr: homemadeMeals[indexPath.row].photoUrl, cell: cell)
+        loadImageForCell(urlStr: getHomemadeMeals()[indexPath.row].photoUrl, cell: cell)
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 0.5
         cell.layer.cornerRadius = 5.0 // corner radius.addtional
@@ -53,7 +74,7 @@ class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, 
             let detailsVC: HomemadeMealDetailViewController = segue.destination as! HomemadeMealDetailViewController
             let cell = sender as! HomemadeMealCollectionViewCell
             let indexPath = self.collectionView!.indexPath(for: cell)
-            detailsVC.meal = homemadeMeals[(indexPath?.row)!]
+            detailsVC.meal = getHomemadeMeals()[(indexPath?.row)!]
         }
     }
     
@@ -127,5 +148,19 @@ class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, 
                 }
             }
         })
+    }
+    
+    // MARK: UISearchBar
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.filter(searchTerm: searchText)
+        collectionView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        self.filter(searchTerm: "")
+        collectionView.reloadData()
     }
 }

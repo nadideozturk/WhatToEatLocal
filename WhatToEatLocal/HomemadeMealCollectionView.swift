@@ -17,12 +17,12 @@ class HomemadeMealCollectionView: UICollectionViewController {
     var config = CLDConfiguration(cloudName: "dv0qmj6vt", apiKey: "752346693282248")
     var cloudinary:CLDCloudinary! = nil
     
-    @IBOutlet var homemadeMealCollection: UICollectionView!
+    @IBOutlet var homemadeMealCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         cloudinary = CLDCloudinary(configuration: self.config)
-        homemadeMealCollection.dataSource = self
+        homemadeMealCollectionView.dataSource = self
         loadMeals()
     }
 
@@ -36,7 +36,7 @@ class HomemadeMealCollectionView: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = homemadeMealCollection.dequeueReusableCell(withReuseIdentifier: "homemadeMealCustomCell", for: indexPath) as! HomemadeMealCollectionViewCell
+        let cell = homemadeMealCollectionView.dequeueReusableCell(withReuseIdentifier: "homemadeMealCustomCell", for: indexPath) as! HomemadeMealCollectionViewCell
         cell.hmMealNameLabel.text = meals[indexPath.row].name
         cell.hmMealImageView.image = #imageLiteral(resourceName: "HolderImage")
         loadImageForCell(urlStr: meals[indexPath.row].photoUrl, cell: cell)
@@ -119,7 +119,7 @@ class HomemadeMealCollectionView: UICollectionViewController {
                     self.meals = try JSONDecoder().decode([Meal].self, from: data)
                     DispatchQueue.main.async {
                         //self.tableView.reloadData()
-                        self.homemadeMealCollection.reloadData()
+                        self.homemadeMealCollectionView.reloadData()
                     }
                     return
                 } catch let jsonErr {

@@ -26,14 +26,33 @@ class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, 
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBarTopConstratint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         cloudinary = CLDCloudinary(configuration: self.config)
         collectionView.dataSource = self
         collectionView.delegate = self
         searchBar.delegate = self
+        setup()
+        
         loadMeals()
+    }
+    
+    func setup() {
+        searchBarTopConstratint.constant = 0.0
+        collectionView.addObserver(self, forKeyPath: "contentOffset", options: [.new, .old], context: nil)
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if let keypath = keyPath, keypath == "contentOffset", let collectionView = object as? UICollectionView {
+            searchBarTopConstratint.constant = -1 * collectionView.contentOffset.y
+        }
+    }
+    
+    deinit {
+        collectionView.removeObserver(self, forKeyPath: "contentOffset")
     }
     
     func filter(searchTerm: String) {

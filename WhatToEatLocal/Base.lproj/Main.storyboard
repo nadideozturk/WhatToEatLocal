@@ -545,7 +545,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ktb-dH-Jan">
-                                <rect key="frame" x="0.0" y="120" width="375" height="498"/>
+                                <rect key="frame" x="0.0" y="121" width="375" height="497"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NjT-xe-zRN">
                                     <size key="itemSize" width="170" height="170"/>
@@ -593,7 +593,7 @@
                             <constraint firstItem="ktb-dH-Jan" firstAttribute="bottom" secondItem="jQn-8b-NOC" secondAttribute="bottom" id="aiR-Sa-Nfu"/>
                             <constraint firstItem="23I-fe-bcG" firstAttribute="trailing" secondItem="jQn-8b-NOC" secondAttribute="trailing" constant="1" id="hkx-ip-4hh"/>
                             <constraint firstItem="23I-fe-bcG" firstAttribute="leading" secondItem="jQn-8b-NOC" secondAttribute="leading" id="iB0-RD-Zlo"/>
-                            <constraint firstItem="ktb-dH-Jan" firstAttribute="top" secondItem="23I-fe-bcG" secondAttribute="bottom" id="nPB-dB-o5d"/>
+                            <constraint firstItem="ktb-dH-Jan" firstAttribute="top" secondItem="23I-fe-bcG" secondAttribute="bottom" constant="1" id="nPB-dB-o5d"/>
                             <constraint firstItem="ktb-dH-Jan" firstAttribute="trailing" secondItem="jQn-8b-NOC" secondAttribute="trailing" id="wpI-Zl-ead"/>
                             <constraint firstItem="23I-fe-bcG" firstAttribute="top" secondItem="jQn-8b-NOC" secondAttribute="top" id="xBW-sQ-lXZ"/>
                         </constraints>
@@ -613,6 +613,7 @@
                     <connections>
                         <outlet property="collectionView" destination="ktb-dH-Jan" id="Wja-bN-t8k"/>
                         <outlet property="searchBar" destination="23I-fe-bcG" id="blA-UB-qoK"/>
+                        <outlet property="searchBarTopConstratint" destination="xBW-sQ-lXZ" id="ZeU-5I-eWn"/>
                         <outlet property="view" destination="ktb-dH-Jan" id="9sU-e1-CVv"/>
                         <segue destination="wlI-av-1uq" kind="show" identifier="showHomemadeMealDetailsSegue" id="99B-85-jIr"/>
                     </connections>

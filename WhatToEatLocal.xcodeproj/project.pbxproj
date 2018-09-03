@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		8AAF514372A6D29AE9ABF390 /* Pods_WhatToEatLocalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F585139A1435145EBB61D04 /* Pods_WhatToEatLocalTests.framework */; };
 		8AFCA5AFA481B161EB9843B5 /* Pods_WhatToEatLocal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F76479DFEC80C91B00B353A /* Pods_WhatToEatLocal.framework */; };
-		8B02CF0A202A69C400EAB35C /* HomemadeMealCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02CF09202A69C400EAB35C /* HomemadeMealCollectionView.swift */; };
-		8B02CF0E202B71D200EAB35C /* HomeMadeMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02CF0D202B71D200EAB35C /* HomeMadeMealViewController.swift */; };
-		8B129B88201D2B6E000FDD00 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B129B87201D2B6E000FDD00 /* Meal.swift */; };
+		8B02CF0A202A69C400EAB35C /* HomemadeMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02CF09202A69C400EAB35C /* HomemadeMealViewController.swift */; };
+		8B02CF0E202B71D200EAB35C /* NewHomemadeMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02CF0D202B71D200EAB35C /* NewHomemadeMealViewController.swift */; };
+		8B129B88201D2B6E000FDD00 /* HomemadeMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B129B87201D2B6E000FDD00 /* HomemadeMeal.swift */; };
 		8B20411E2131FD5B00CEB87A /* EurekaFormExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20411D2131FD5B00CEB87A /* EurekaFormExtension.swift */; };
 		8B258B5D212FD5DA00A6736D /* HomemadeMealEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B258B5C212FD5DA00A6736D /* HomemadeMealEditViewController.swift */; };
 		8B258B5F212FD60900A6736D /* OutsideMealEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B258B5E212FD60900A6736D /* OutsideMealEditViewController.swift */; };
@@ -47,9 +47,9 @@
 		0F76479DFEC80C91B00B353A /* Pods_WhatToEatLocal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatToEatLocal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F585139A1435145EBB61D04 /* Pods_WhatToEatLocalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatToEatLocalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50F9955925C91C4B6A4ACFD1 /* Pods-WhatToEatLocal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatToEatLocal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatToEatLocal/Pods-WhatToEatLocal.debug.xcconfig"; sourceTree = "<group>"; };
-		8B02CF09202A69C400EAB35C /* HomemadeMealCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomemadeMealCollectionView.swift; sourceTree = "<group>"; };
-		8B02CF0D202B71D200EAB35C /* HomeMadeMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMadeMealViewController.swift; sourceTree = "<group>"; };
-		8B129B87201D2B6E000FDD00 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		8B02CF09202A69C400EAB35C /* HomemadeMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomemadeMealViewController.swift; sourceTree = "<group>"; };
+		8B02CF0D202B71D200EAB35C /* NewHomemadeMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomemadeMealViewController.swift; sourceTree = "<group>"; };
+		8B129B87201D2B6E000FDD00 /* HomemadeMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomemadeMeal.swift; sourceTree = "<group>"; };
 		8B20411D2131FD5B00CEB87A /* EurekaFormExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EurekaFormExtension.swift; sourceTree = "<group>"; };
 		8B258B5C212FD5DA00A6736D /* HomemadeMealEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomemadeMealEditViewController.swift; sourceTree = "<group>"; };
 		8B258B5E212FD60900A6736D /* OutsideMealEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutsideMealEditViewController.swift; sourceTree = "<group>"; };
@@ -139,27 +139,27 @@
 		8BC5D8FF200B3500008C7C90 /* WhatToEatLocal */ = {
 			isa = PBXGroup;
 			children = (
-				8BBE0FA520351934008FCC2F /* GoogleService-Info.plist */,
-				8B2D70AD202A5BDF00404F8C /* HomemadeMealCollectionViewCell.swift */,
 				8BC5D900200B3500008C7C90 /* AppDelegate.swift */,
-				8BC5D904200B3500008C7C90 /* OutsideMealViewController.swift */,
-				8BC5D906200B3500008C7C90 /* Main.storyboard */,
-				8B258B5E212FD60900A6736D /* OutsideMealEditViewController.swift */,
-				8B258B5C212FD5DA00A6736D /* HomemadeMealEditViewController.swift */,
 				8BC5D909200B3500008C7C90 /* Assets.xcassets */,
-				8BC5D90E200B3500008C7C90 /* Info.plist */,
-				8B129B87201D2B6E000FDD00 /* Meal.swift */,
-				8B02CF09202A69C400EAB35C /* HomemadeMealCollectionView.swift */,
-				8B02CF0D202B71D200EAB35C /* HomeMadeMealViewController.swift */,
-				8BBE0FA32034EEF4008FCC2F /* SignInViewController.swift */,
 				8B6BBEFC2037F1570073C017 /* AutoSigninViewController.swift */,
 				8B66D5AE208EE0D1006F41EE /* BackendConfig.swift */,
-				8B282219208FF2CE0058A6BC /* OutsideMealCollectionViewCell.swift */,
-				8B28221B208FF93C0058A6BC /* OutsideMeal.swift */,
-				8BF7C14B20A65BBE005964D4 /* OutsideMealCrudViewController.swift */,
-				8BEF17CF2116E1A80096B154 /* HomemadeMealDetailViewController.swift */,
-				8BEF17D12116FC440096B154 /* OutsideMealDetailViewController.swift */,
 				8B20411D2131FD5B00CEB87A /* EurekaFormExtension.swift */,
+				8BBE0FA520351934008FCC2F /* GoogleService-Info.plist */,
+				8B2D70AD202A5BDF00404F8C /* HomemadeMealCollectionViewCell.swift */,
+				8BEF17CF2116E1A80096B154 /* HomemadeMealDetailViewController.swift */,
+				8B258B5C212FD5DA00A6736D /* HomemadeMealEditViewController.swift */,
+				8B02CF09202A69C400EAB35C /* HomemadeMealViewController.swift */,
+				8BC5D90E200B3500008C7C90 /* Info.plist */,
+				8BC5D906200B3500008C7C90 /* Main.storyboard */,
+				8B129B87201D2B6E000FDD00 /* HomemadeMeal.swift */,
+				8B02CF0D202B71D200EAB35C /* NewHomemadeMealViewController.swift */,
+				8B28221B208FF93C0058A6BC /* OutsideMeal.swift */,
+				8B282219208FF2CE0058A6BC /* OutsideMealCollectionViewCell.swift */,
+				8BF7C14B20A65BBE005964D4 /* OutsideMealCrudViewController.swift */,
+				8BEF17D12116FC440096B154 /* OutsideMealDetailViewController.swift */,
+				8B258B5E212FD60900A6736D /* OutsideMealEditViewController.swift */,
+				8BC5D904200B3500008C7C90 /* OutsideMealViewController.swift */,
+				8BBE0FA32034EEF4008FCC2F /* SignInViewController.swift */,
 			);
 			path = WhatToEatLocal;
 			sourceTree = "<group>";
@@ -369,16 +369,16 @@
 			files = (
 				8BBE0FA42034EEF4008FCC2F /* SignInViewController.swift in Sources */,
 				8B6BBEFD2037F1570073C017 /* AutoSigninViewController.swift in Sources */,
-				8B129B88201D2B6E000FDD00 /* Meal.swift in Sources */,
+				8B129B88201D2B6E000FDD00 /* HomemadeMeal.swift in Sources */,
 				8B28221C208FF93C0058A6BC /* OutsideMeal.swift in Sources */,
 				8B28221A208FF2CE0058A6BC /* OutsideMealCollectionViewCell.swift in Sources */,
 				8B66D5AF208EE0D1006F41EE /* BackendConfig.swift in Sources */,
 				8BC5D905200B3500008C7C90 /* OutsideMealViewController.swift in Sources */,
 				8B258B5F212FD60900A6736D /* OutsideMealEditViewController.swift in Sources */,
-				8B02CF0A202A69C400EAB35C /* HomemadeMealCollectionView.swift in Sources */,
+				8B02CF0A202A69C400EAB35C /* HomemadeMealViewController.swift in Sources */,
 				8B20411E2131FD5B00CEB87A /* EurekaFormExtension.swift in Sources */,
 				8B2D70AE202A5BDF00404F8C /* HomemadeMealCollectionViewCell.swift in Sources */,
-				8B02CF0E202B71D200EAB35C /* HomeMadeMealViewController.swift in Sources */,
+				8B02CF0E202B71D200EAB35C /* NewHomemadeMealViewController.swift in Sources */,
 				8BC5D901200B3500008C7C90 /* AppDelegate.swift in Sources */,
 				8BF7C14C20A65BBE005964D4 /* OutsideMealCrudViewController.swift in Sources */,
 				8B258B5D212FD5DA00A6736D /* HomemadeMealEditViewController.swift in Sources */,

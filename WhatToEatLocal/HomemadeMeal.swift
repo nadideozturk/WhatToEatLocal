@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class Meal:Decodable, Encodable {
+class HomemadeMeal:Decodable, Encodable {
     
      //MARK: Propeties
     var id: String

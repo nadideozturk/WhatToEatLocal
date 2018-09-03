@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  OutsideMealViewController.swift
 //  WhatToEatLocal
 //
 //  Created by Engin Oruc Ozturk on 13.01.2018.
@@ -31,16 +31,15 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource, U
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return outsideMeals.count
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "outsideMealCustomCell", for: indexPath) as! OutsideMealCollectionViewCell
         cell.outsideMealNameLbl.text = outsideMeals[indexPath.row].name + " at " + outsideMeals[indexPath.row].restaurantName
         cell.outsideMealImageView.image = #imageLiteral(resourceName: "HolderImage")
-        //cell.outsideRestLabel.text = outsideMeals[indexPath.row].restaurantName
-        //cell.outsideMealPriceLbl.text = "CDN$ " + String(outsideMeals[indexPath.row].price)
         loadImageForCell(urlStr: outsideMeals[indexPath.row].photoUrl, cell: cell)
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 0.5
-        cell.layer.cornerRadius = 5.0// corner radius.addtional
+        cell.layer.cornerRadius = 5.0 // corner radius.addtional
         return cell
     }
     
@@ -103,9 +102,11 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource, U
         }
         task.resume()
     }
+    
     @IBAction func unwindToOutsideMealList(sender: UIStoryboardSegue) {
         loadMeals()
     }
+    
     private func loadImageForCell(urlStr: String, cell: OutsideMealCollectionViewCell) {
         let url = URL(string: urlStr)
         self.cloudinary.createDownloader().fetchImage(urlStr, nil, completionHandler: { (result,error) in
@@ -125,7 +126,6 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource, U
                 catch _ as NSError{
                 }
             }
-
         })
     }
 }

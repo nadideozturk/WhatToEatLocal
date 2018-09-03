@@ -12,7 +12,7 @@ import GoogleSignIn
 import Eureka
 import ImageRow
 
-class HomeMadeMealViewController: FormViewController, UINavigationControllerDelegate {
+class NewHomemadeMealViewController: FormViewController, UINavigationControllerDelegate {
     
     // MARK: Properties
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -109,7 +109,7 @@ class HomeMadeMealViewController: FormViewController, UINavigationControllerDele
         let durInMinRow: IntRow? = form.rowBy(tag: "durInMin")
         let intDurationInMin = durInMinRow?.value
         
-        let newMeal = Meal(id: "", name: name!, photoUrl: " ", durationInMinutes:intDurationInMin!,lastEatenDate: strLastEatenDate, photoContent: imageBase64 )
+        let newMeal = HomemadeMeal(id: "", name: name!, photoUrl: " ", durationInMinutes:intDurationInMin!,lastEatenDate: strLastEatenDate, photoContent: imageBase64 )
         submitNewMeal(meal: newMeal!) { (error) in
             if let error = error {
                 fatalError(error.localizedDescription)
@@ -119,7 +119,7 @@ class HomeMadeMealViewController: FormViewController, UINavigationControllerDele
     
     //MARK: Private Methods
     
-    private func submitNewMeal(meal: Meal, completion:((Error?) -> Void)?){
+    private func submitNewMeal(meal: HomemadeMeal, completion:((Error?) -> Void)?){
         let urlComponents = BackendConfig.getUrl(path: "/homemademeals")
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
         

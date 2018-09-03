@@ -11,7 +11,7 @@ import Cloudinary
 
 class HomemadeMealDetailViewController: UIViewController {
     
-    var meal:Meal? = nil
+    var meal:HomemadeMeal? = nil
 
     @IBOutlet weak var lblHomemadeMealName: UILabel!
     

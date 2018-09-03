@@ -1,5 +1,5 @@
 //
-//  MealTableViewController.swift
+//  HomemadeMealViewController.swift
 //  WhatToEatLocal
 //
 //  Created by Engin Oruc Ozturk on 6.02.2018.
@@ -11,42 +11,39 @@ import os.log
 import GoogleSignIn
 import Cloudinary
 
-class HomemadeMealCollectionView: UICollectionViewController {
+class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
-    var meals = [Meal]()
+    var homemadeMeals = [HomemadeMeal]()
+    
     var config = CLDConfiguration(cloudName: "dv0qmj6vt", apiKey: "752346693282248")
     var cloudinary:CLDCloudinary! = nil
     
-    @IBOutlet var homemadeMealCollectionView: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         cloudinary = CLDCloudinary(configuration: self.config)
-        homemadeMealCollectionView.dataSource = self
+        collectionView.dataSource = self
+        collectionView.delegate = self
         loadMeals()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return homemadeMeals.count
     }
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return meals.count
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = homemadeMealCollectionView.dequeueReusableCell(withReuseIdentifier: "homemadeMealCustomCell", for: indexPath) as! HomemadeMealCollectionViewCell
-        cell.hmMealNameLabel.text = meals[indexPath.row].name
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "homemadeMealCustomCell", for: indexPath) as! HomemadeMealCollectionViewCell
+        cell.hmMealNameLabel.text = homemadeMeals[indexPath.row].name
         cell.hmMealImageView.image = #imageLiteral(resourceName: "HolderImage")
-        loadImageForCell(urlStr: meals[indexPath.row].photoUrl, cell: cell)
+        loadImageForCell(urlStr: homemadeMeals[indexPath.row].photoUrl, cell: cell)
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 0.5
         cell.layer.cornerRadius = 5.0 // corner radius.addtional
         return cell
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath as IndexPath)
         self.performSegue(withIdentifier: "showHomemadeMealDetailsSegue", sender: cell)
     }
@@ -56,37 +53,11 @@ class HomemadeMealCollectionView: UICollectionViewController {
             let detailsVC: HomemadeMealDetailViewController = segue.destination as! HomemadeMealDetailViewController
             let cell = sender as! HomemadeMealCollectionViewCell
             let indexPath = self.collectionView!.indexPath(for: cell)
-            detailsVC.meal = meals[(indexPath?.row)!]
+            detailsVC.meal = homemadeMeals[(indexPath?.row)!]
         }
     }
     
-    /*
-    private func loadMealsT(){
-        //guard let url = URL(string: "http://ec2-34-209-47-4.us-west-2.compute.amazonaws.com:8080/homemademeals") else {
-         guard let url = URL(string: "http://192.168.1.9:8080/homemademeals") else {
-            return
-        }
-        let session = URLSession.shared
-        session.dataTask(with: url) { (data, response, error) in
-            if let data = data {
-                print(data)
-                let status = (response as! HTTPURLResponse).statusCode
-                if(status == 401){
-                    return
-                }
-                do {
-                    self.meals = try JSONDecoder().decode([Meal].self, from: data)
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                    return
-                } catch let jsonErr {
-                    os_log("Error serializing json:", log: OSLog.default, type: .debug)
-                    fatalError("Error serializing json:" + jsonErr.localizedDescription)
-                }
-            }
-            }.resume()
-    } */
+    // MARK: Private methods
     
     private func loadMeals(){
         let urlComponents = BackendConfig.getUrl(path: "/homemademeals")
@@ -116,10 +87,9 @@ class HomemadeMealCollectionView: UICollectionViewController {
                     return
                 }
                 do {
-                    self.meals = try JSONDecoder().decode([Meal].self, from: data)
+                    self.homemadeMeals = try JSONDecoder().decode([HomemadeMeal].self, from: data)
                     DispatchQueue.main.async {
-                        //self.tableView.reloadData()
-                        self.homemadeMealCollectionView.reloadData()
+                        self.collectionView.reloadData()
                     }
                     return
                 } catch let jsonErr {

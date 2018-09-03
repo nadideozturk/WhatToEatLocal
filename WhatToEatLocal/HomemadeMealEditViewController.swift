@@ -10,7 +10,7 @@ import UIKit
 
 class HomemadeMealEditViewController: UIViewController {
     
-    var meal:Meal? = nil
+    var meal:HomemadeMeal? = nil
     
     
     @IBOutlet weak var lblHmmName: UILabel!

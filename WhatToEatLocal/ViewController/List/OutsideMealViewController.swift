@@ -11,32 +11,72 @@ import os.log
 import GoogleSignIn
 import Cloudinary
 
-class OutsideMealViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class OutsideMealViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
     
-    var outsideMeals = [OutsideMeal]()
+    private var outsideMeals = [OutsideMeal]()
+    private var filteredOutsideMeals: [OutsideMeal] = []
+    private var isFiltering: Bool = false
+    
+    private func getOutsideMeals() -> [OutsideMeal] {
+        return isFiltering ? filteredOutsideMeals : outsideMeals
+    }
     
     var config = CLDConfiguration(cloudName: "dv0qmj6vt", apiKey: "752346693282248")
     var cloudinary:CLDCloudinary! = nil
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBarTopConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         cloudinary = CLDCloudinary(configuration: self.config)
         collectionView.dataSource = self
         collectionView.delegate = self
+        searchBar.delegate = self
+        setup()
+        
         loadMeals()
+    }
+    
+    func setup() {
+        searchBarTopConstraint.constant = 0.0
+        collectionView.addObserver(self, forKeyPath: "contentOffset", options: [.new, .old], context: nil)
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if let keypath = keyPath, keypath == "contentOffset", let collectionView = object as? UICollectionView {
+            searchBarTopConstraint.constant = -1 * collectionView.contentOffset.y
+        }
+    }
+    
+    deinit {
+        collectionView.removeObserver(self, forKeyPath: "contentOffset")
+    }
+    
+    func filter(searchTerm: String) {
+        if searchTerm.isEmpty {
+            isFiltering = false
+            filteredOutsideMeals.removeAll()
+            return
+        }
+        
+        isFiltering = true
+        filteredOutsideMeals = outsideMeals.filter({
+            return $0.name.localizedCaseInsensitiveContains(searchTerm)
+        })
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return outsideMeals.count
+        return getOutsideMeals().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "outsideMealCustomCell", for: indexPath) as! OutsideMealCollectionViewCell
-        cell.outsideMealNameLbl.text = outsideMeals[indexPath.row].name + " at " + outsideMeals[indexPath.row].restaurantName
+        cell.outsideMealNameLbl.text = getOutsideMeals()[indexPath.row].name + " at " + getOutsideMeals()[indexPath.row].restaurantName
         cell.outsideMealImageView.image = #imageLiteral(resourceName: "HolderImage")
-        loadImageForCell(urlStr: outsideMeals[indexPath.row].photoUrl, cell: cell)
+        loadImageForCell(urlStr: getOutsideMeals()[indexPath.row].photoUrl, cell: cell)
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 0.5
         cell.layer.cornerRadius = 5.0 // corner radius.addtional
@@ -127,6 +167,44 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource, U
                 }
             }
         })
+    }
+    
+    // MARK: UISearchBar
+    private func closeSearchInput() {
+        // Hide keyboard when search button is clicked
+        searchBar.showsCancelButton = false
+        searchBar.resignFirstResponder()
+    }
+    
+    private func checkSearchCancelled() {
+        if !searchBar.text!.isEmpty {
+            return
+        }
+        closeSearchInput()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.filter(searchTerm: searchText)
+        checkSearchCancelled()
+        collectionView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        checkSearchCancelled()
+        self.filter(searchTerm: "")
+        collectionView.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        closeSearchInput()
     }
 }
 

@@ -26,7 +26,7 @@ class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, 
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var searchBarTopConstratint: NSLayoutConstraint!
+    @IBOutlet weak var searchBarTopConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,13 +41,13 @@ class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     func setup() {
-        searchBarTopConstratint.constant = 0.0
+        searchBarTopConstraint.constant = 0.0
         collectionView.addObserver(self, forKeyPath: "contentOffset", options: [.new, .old], context: nil)
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if let keypath = keyPath, keypath == "contentOffset", let collectionView = object as? UICollectionView {
-            searchBarTopConstratint.constant = -1 * collectionView.contentOffset.y
+            searchBarTopConstraint.constant = -1 * collectionView.contentOffset.y
         }
     }
     

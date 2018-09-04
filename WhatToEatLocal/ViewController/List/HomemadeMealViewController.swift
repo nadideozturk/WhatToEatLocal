@@ -170,13 +170,17 @@ class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     // MARK: UISearchBar
-    private func checkSearchCancelled() {
-        if !searchBar.text!.isEmpty {
-            return;
-        }
+    private func closeSearchInput() {
         // Hide keyboard when search button is clicked
         searchBar.showsCancelButton = false
         searchBar.resignFirstResponder()
+    }
+    
+    private func checkSearchCancelled() {
+        if !searchBar.text!.isEmpty {
+            return
+        }
+        closeSearchInput()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -200,5 +204,6 @@ class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        closeSearchInput()
     }
 }

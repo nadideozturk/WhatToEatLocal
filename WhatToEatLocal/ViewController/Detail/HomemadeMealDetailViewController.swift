@@ -35,7 +35,7 @@ class HomemadeMealDetailViewController: UIViewController {
             lblDurInMinHMMD.text = strDurInMin + " MIN"
             lblLastEatenDateHMMD.text = calculatetimePassed(lastEatenDate: (meal?.lastEatenDate)!)
             imgViewHomeMadeMealD.image = #imageLiteral(resourceName: "HolderImage")
-            CloudinaryClient.setImageAsync(imageView: imgViewHomeMadeMealD, imageURL: meal!.photoUrl)
+            CloudinaryClient.setImageViewImageAsync(imageView: imgViewHomeMadeMealD, imageUrl: meal!.photoUrl)
         }
     }
 

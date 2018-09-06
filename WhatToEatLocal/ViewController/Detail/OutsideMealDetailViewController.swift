@@ -33,7 +33,7 @@ class OutsideMealDetailViewController: UIViewController {
             lblOutsideMealPrice.text = price  + " CDN"
             lblOutsideMealDate.text = calculatetimePassed(lastEatenDate: (meal?.lastEatenDate)!)
             imgViewerOutsideMeal.image = #imageLiteral(resourceName: "HolderImage")
-            CloudinaryClient.setImageAsync(imageView: imgViewerOutsideMeal, imageURL: meal!.photoUrl)
+            CloudinaryClient.setImageViewImageAsync(imageView: imgViewerOutsideMeal, imageUrl: meal!.photoUrl)
         }
     }
 

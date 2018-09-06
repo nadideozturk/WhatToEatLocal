@@ -72,7 +72,7 @@ class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "homemadeMealCustomCell", for: indexPath) as! HomemadeMealCollectionViewCell
         cell.hmMealNameLabel.text = meal.name
         cell.hmMealImageView.image = #imageLiteral(resourceName: "HolderImage")
-        CloudinaryClient.setImageAsync(imageView: cell.hmMealImageView, imageURL: meal.photoUrl)
+        CloudinaryClient.setImageViewImageAsync(imageView: cell.hmMealImageView, imageUrl: meal.photoUrl)
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 0.5
         cell.layer.cornerRadius = 5.0 // corner radius.addtional

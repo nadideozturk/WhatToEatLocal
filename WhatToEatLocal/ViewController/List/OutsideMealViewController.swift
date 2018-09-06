@@ -72,7 +72,7 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource, U
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "outsideMealCustomCell", for: indexPath) as! OutsideMealCollectionViewCell
         cell.outsideMealNameLbl.text = meal.name + " at " + meal.restaurantName
         cell.outsideMealImageView.image = #imageLiteral(resourceName: "HolderImage")
-        CloudinaryClient.setImageAsync(imageView: cell.outsideMealImageView, imageURL: meal.photoUrl)
+        CloudinaryClient.setImageViewImageAsync(imageView: cell.outsideMealImageView, imageUrl: meal.photoUrl)
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 0.5
         cell.layer.cornerRadius = 5.0 // corner radius.addtional

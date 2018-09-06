@@ -35,10 +35,6 @@ class HomemadeMealEditViewController: FormViewController {
                 $0.clearAction = .no
                 $0.allowEditor = true
                 $0.useEditedImage = true
-                if let decodedData = Data(base64Encoded: (meal?.photoContent)!, options: .ignoreUnknownCharacters) {
-                    let image = UIImage(data: decodedData)
-                    $0.value = image
-                }
                 }
                 .cellUpdate { cell, row in
                     cell.accessoryView?.layer.cornerRadius = 17
@@ -88,6 +84,8 @@ class HomemadeMealEditViewController: FormViewController {
                     self.hmMeallastEatenDate = row.value!  //updating the value on change
                     self.updateSaveButtonEnabled()
                 })
+        
+        CloudinaryClient.setImageRowImageAsync(imageRow: self.form.rowBy(tag: "homemadeMealImage"), imageUrl: meal!.photoUrl)
     }
 
     override func didReceiveMemoryWarning() {

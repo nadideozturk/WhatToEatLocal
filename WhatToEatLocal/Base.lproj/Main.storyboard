@@ -635,7 +635,6 @@
                         <outlet property="collectionView" destination="ktb-dH-Jan" id="Wja-bN-t8k"/>
                         <outlet property="searchBar" destination="23I-fe-bcG" id="blA-UB-qoK"/>
                         <outlet property="searchBarTopConstraint" destination="xBW-sQ-lXZ" id="ZeU-5I-eWn"/>
-                        <outlet property="view" destination="ktb-dH-Jan" id="9sU-e1-CVv"/>
                         <segue destination="wlI-av-1uq" kind="show" identifier="showHomemadeMealDetailsSegue" id="99B-85-jIr"/>
                     </connections>
                 </viewController>

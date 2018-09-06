@@ -7,15 +7,11 @@
 //
 
 import UIKit
-import Cloudinary
 
 class OutsideMealDetailViewController: UIViewController {
     
     // MARK: - Properties
     var  meal:OutsideMeal? = nil
-    
-    var config = CLDConfiguration(cloudName: "dv0qmj6vt", apiKey: "752346693282248")
-    var cloudinary:CLDCloudinary! = nil
     
     @IBOutlet weak var lblOutsideMealName: UILabel!
     
@@ -23,9 +19,7 @@ class OutsideMealDetailViewController: UIViewController {
     
     @IBOutlet weak var lblOutsideMealDate: UILabel!
     
-    
     @IBOutlet weak var imgViewerOutsideMeal: UIImageView!
-    
     
     @IBAction func editBtnClicked(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: "showOutsideMealEditSegue", sender: UIBarButtonItem.self)
@@ -33,7 +27,6 @@ class OutsideMealDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        cloudinary = CLDCloudinary(configuration: self.config)
         if meal != nil {
             lblOutsideMealName.text = (meal?.name.capitalized)! + " at " + (meal?.restaurantName.capitalized)!
             let price:String = String(format:"%.2f", (meal?.price)!)
@@ -42,16 +35,11 @@ class OutsideMealDetailViewController: UIViewController {
             imgViewerOutsideMeal.image = #imageLiteral(resourceName: "HolderImage")
             loadImageForDetail(urlStr: (meal?.photoUrl)!, imgViewer: imgViewerOutsideMeal)
         }
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -74,31 +62,26 @@ class OutsideMealDetailViewController: UIViewController {
         let strDate:String = (dateString?.uppercased())! + " AGO"
         return strDate
     }
+    
     private func loadImageForDetail(urlStr: String, imgViewer: UIImageView!) {
-        let url = URL(string: urlStr)
         do {
-            self.cloudinary.createDownloader().fetchImage(urlStr, nil, completionHandler: { (result,error) in
-                if let error = error {
-                    print("Error downloading image %@", error)
-                }
-                else {
-                    print("Image downloaded from Cloudinary successfully")
-                    do{
-                        let data = try Data(contentsOf: url!)
-                        var image: UIImage?
-                        image = UIImage(data: data)
-                        DispatchQueue.main.async {
-                            imgViewer.image = image
+            CloudinaryClient.cloudinary.createDownloader().fetchImage(
+                urlStr, // image url
+                nil, // progress handler
+                completionHandler: { // completion handler
+                    (responseImage, error) in
+                    if let error = error {
+                        print("Error downloading image %@", error)
+                    }
+                    else {
+                        print("Image downloaded from Cloudinary successfully " + urlStr)
+                        do{
+                            DispatchQueue.main.async {
+                                imgViewer.image = responseImage
+                            }
                         }
                     }
-                    catch _ as NSError{
-                    }
-                }
-                
             })
-        }catch {
         }
     }
-
-
 }

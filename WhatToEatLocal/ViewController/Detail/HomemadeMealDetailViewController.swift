@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Cloudinary
 
 class HomemadeMealDetailViewController: UIViewController {
     
@@ -21,18 +20,13 @@ class HomemadeMealDetailViewController: UIViewController {
     
     @IBOutlet weak var lblDurInMinHMMD: UILabel!
     
-    
     @IBAction func editBtnClicked(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: "showHomemadeMealEditSegue", sender: UIBarButtonItem.self)
     }
     
-    var config = CLDConfiguration(cloudName: "dv0qmj6vt", apiKey: "752346693282248")
-    var cloudinary:CLDCloudinary! = nil
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.lblHomemadeMealName.text = meal?.name
-        cloudinary = CLDCloudinary(configuration: self.config)
         if meal != nil {
             lblHomemadeMealName.text = (meal?.name.capitalized)!
             //let price:String = String(format:"%.2f", (meal?.price)!)
@@ -78,27 +72,24 @@ class HomemadeMealDetailViewController: UIViewController {
     }
     
     private func loadImageForDetail(urlStr: String, imgViewer: UIImageView!) {
-        let url = URL(string: urlStr)
         do {
-            self.cloudinary.createDownloader().fetchImage(urlStr, nil, completionHandler: { (result,error) in
-                if let error = error {
-                    print("Error downloading image %@", error)
-                }
-                else {
-                    print("Image downloaded from Cloudinary successfully")
-                    do{
-                        let data = try Data(contentsOf: url!)
-                        var image: UIImage?
-                        image = UIImage(data: data)
-                        DispatchQueue.main.async {
-                            imgViewer.image = image
+            CloudinaryClient.cloudinary.createDownloader().fetchImage(
+                urlStr, // image url
+                nil, // progress handler
+                completionHandler: { // completion handler
+                    (responseImage, error) in
+                    if let error = error {
+                        print("Error downloading image %@", error)
+                    }
+                    else {
+                        print("Image downloaded from Cloudinary successfully " + urlStr)
+                        do{
+                            DispatchQueue.main.async {
+                                imgViewer.image = responseImage
+                            }
                         }
                     }
-                    catch _ as NSError{
-                    }
-                }
             })
-        }catch {
         }
     }
 }

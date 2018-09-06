@@ -9,7 +9,6 @@
 import UIKit
 import os.log
 import GoogleSignIn
-import Cloudinary
 
 class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
 
@@ -21,9 +20,6 @@ class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, 
         return isFiltering ? filteredHomemadeMeals : homemadeMeals
     }
     
-    var config = CLDConfiguration(cloudName: "dv0qmj6vt", apiKey: "752346693282248")
-    var cloudinary:CLDCloudinary! = nil
-    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchBarTopConstraint: NSLayoutConstraint!
@@ -31,7 +27,6 @@ class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cloudinary = CLDCloudinary(configuration: self.config)
         collectionView.dataSource = self
         collectionView.delegate = self
         searchBar.delegate = self
@@ -148,25 +143,25 @@ class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     private func loadImageForCell(urlStr: String, cell: HomemadeMealCollectionViewCell) {
-        let url = URL(string: urlStr)
-        self.cloudinary.createDownloader().fetchImage(urlStr, nil, completionHandler: { (result,error) in
-            if let error = error {
-                print("Error downloading image %@", error)
-            }
-            else {
-                print("Image downloaded from Cloudinary successfully")
-                do{
-                    let data = try Data(contentsOf: url!)
-                    var image: UIImage?
-                    image = UIImage(data: data)
-                    DispatchQueue.main.async {
-                        cell.hmMealImageView.image = image
+        do {
+            CloudinaryClient.cloudinary.createDownloader().fetchImage(
+                urlStr, // image url
+                nil, // progress handler
+                completionHandler: { // completion handler
+                    (responseImage, error) in
+                    if let error = error {
+                        print("Error downloading image %@", error)
                     }
-                }
-                catch _ as NSError{
-                }
-            }
-        })
+                    else {
+                        print("Image downloaded from Cloudinary successfully " + urlStr)
+                        do{
+                            DispatchQueue.main.async {
+                                cell.hmMealImageView.image = responseImage
+                            }
+                        }
+                    }
+            })
+        }
     }
     
     // MARK: UISearchBar

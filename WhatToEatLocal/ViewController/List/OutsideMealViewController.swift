@@ -9,7 +9,6 @@
 import UIKit
 import os.log
 import GoogleSignIn
-import Cloudinary
 
 class OutsideMealViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
     
@@ -20,9 +19,6 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource, U
     private func getOutsideMeals() -> [OutsideMeal] {
         return isFiltering ? filteredOutsideMeals : outsideMeals
     }
-    
-    var config = CLDConfiguration(cloudName: "dv0qmj6vt", apiKey: "752346693282248")
-    var cloudinary:CLDCloudinary! = nil
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -31,7 +27,6 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cloudinary = CLDCloudinary(configuration: self.config)
         collectionView.dataSource = self
         collectionView.delegate = self
         searchBar.delegate = self
@@ -148,25 +143,25 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     private func loadImageForCell(urlStr: String, cell: OutsideMealCollectionViewCell) {
-        let url = URL(string: urlStr)
-        self.cloudinary.createDownloader().fetchImage(urlStr, nil, completionHandler: { (result,error) in
-            if let error = error {
-                print("Error downloading image %@", error)
-            }
-            else {
-                print("Image downloaded from Cloudinary successfully")
-                do{
-                    let data = try Data(contentsOf: url!)
-                    var image: UIImage?
-                    image = UIImage(data: data)
-                    DispatchQueue.main.async {
-                        cell.outsideMealImageView.image = image
+        do {
+            CloudinaryClient.cloudinary.createDownloader().fetchImage(
+                urlStr, // image url
+                nil, // progress handler
+                completionHandler: { // completion handler
+                    (responseImage, error) in
+                    if let error = error {
+                        print("Error downloading image %@", error)
                     }
-                }
-                catch _ as NSError{
-                }
-            }
-        })
+                    else {
+                        print("Image downloaded from Cloudinary successfully " + urlStr)
+                        do{
+                            DispatchQueue.main.async {
+                                cell.outsideMealImageView.image = responseImage
+                            }
+                        }
+                    }
+            })
+        }
     }
     
     // MARK: UISearchBar

@@ -68,10 +68,11 @@ class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let meal = getHomemadeMeals()[indexPath.row];
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "homemadeMealCustomCell", for: indexPath) as! HomemadeMealCollectionViewCell
-        cell.hmMealNameLabel.text = getHomemadeMeals()[indexPath.row].name
+        cell.hmMealNameLabel.text = meal.name
         cell.hmMealImageView.image = #imageLiteral(resourceName: "HolderImage")
-        loadImageForCell(urlStr: getHomemadeMeals()[indexPath.row].photoUrl, cell: cell)
+        CloudinaryClient.setImageAsync(imageView: cell.hmMealImageView, imageURL: meal.photoUrl)
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 0.5
         cell.layer.cornerRadius = 5.0 // corner radius.addtional
@@ -140,28 +141,6 @@ class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, 
     
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
         loadMeals()
-    }
-    
-    private func loadImageForCell(urlStr: String, cell: HomemadeMealCollectionViewCell) {
-        do {
-            CloudinaryClient.cloudinary.createDownloader().fetchImage(
-                urlStr, // image url
-                nil, // progress handler
-                completionHandler: { // completion handler
-                    (responseImage, error) in
-                    if let error = error {
-                        print("Error downloading image %@", error)
-                    }
-                    else {
-                        print("Image downloaded from Cloudinary successfully " + urlStr)
-                        do{
-                            DispatchQueue.main.async {
-                                cell.hmMealImageView.image = responseImage
-                            }
-                        }
-                    }
-            })
-        }
     }
     
     // MARK: UISearchBar

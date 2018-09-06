@@ -68,10 +68,11 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let meal = getOutsideMeals()[indexPath.row];
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "outsideMealCustomCell", for: indexPath) as! OutsideMealCollectionViewCell
-        cell.outsideMealNameLbl.text = getOutsideMeals()[indexPath.row].name + " at " + getOutsideMeals()[indexPath.row].restaurantName
+        cell.outsideMealNameLbl.text = meal.name + " at " + meal.restaurantName
         cell.outsideMealImageView.image = #imageLiteral(resourceName: "HolderImage")
-        loadImageForCell(urlStr: getOutsideMeals()[indexPath.row].photoUrl, cell: cell)
+        CloudinaryClient.setImageAsync(imageView: cell.outsideMealImageView, imageURL: meal.photoUrl)
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 0.5
         cell.layer.cornerRadius = 5.0 // corner radius.addtional
@@ -140,28 +141,6 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource, U
     
     @IBAction func unwindToOutsideMealList(sender: UIStoryboardSegue) {
         loadMeals()
-    }
-    
-    private func loadImageForCell(urlStr: String, cell: OutsideMealCollectionViewCell) {
-        do {
-            CloudinaryClient.cloudinary.createDownloader().fetchImage(
-                urlStr, // image url
-                nil, // progress handler
-                completionHandler: { // completion handler
-                    (responseImage, error) in
-                    if let error = error {
-                        print("Error downloading image %@", error)
-                    }
-                    else {
-                        print("Image downloaded from Cloudinary successfully " + urlStr)
-                        do{
-                            DispatchQueue.main.async {
-                                cell.outsideMealImageView.image = responseImage
-                            }
-                        }
-                    }
-            })
-        }
     }
     
     // MARK: UISearchBar

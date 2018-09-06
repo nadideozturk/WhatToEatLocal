@@ -35,18 +35,13 @@ class HomemadeMealDetailViewController: UIViewController {
             lblDurInMinHMMD.text = strDurInMin + " MIN"
             lblLastEatenDateHMMD.text = calculatetimePassed(lastEatenDate: (meal?.lastEatenDate)!)
             imgViewHomeMadeMealD.image = #imageLiteral(resourceName: "HolderImage")
-            loadImageForDetail(urlStr: (meal?.photoUrl)!, imgViewer: imgViewHomeMadeMealD)
+            CloudinaryClient.setImageAsync(imageView: imgViewHomeMadeMealD, imageURL: meal!.photoUrl)
         }
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -56,7 +51,6 @@ class HomemadeMealDetailViewController: UIViewController {
         }
     }
 
-    
     // MARK: - Private Functions
     func calculatetimePassed(lastEatenDate: String) -> String {
         let dateFormatter = DateFormatter()
@@ -69,27 +63,5 @@ class HomemadeMealDetailViewController: UIViewController {
         let dateString = dateComponentsFormatter.string(from: abs(timeInterval!))
         let strDate:String = (dateString?.uppercased())! + " AGO"
         return strDate
-    }
-    
-    private func loadImageForDetail(urlStr: String, imgViewer: UIImageView!) {
-        do {
-            CloudinaryClient.cloudinary.createDownloader().fetchImage(
-                urlStr, // image url
-                nil, // progress handler
-                completionHandler: { // completion handler
-                    (responseImage, error) in
-                    if let error = error {
-                        print("Error downloading image %@", error)
-                    }
-                    else {
-                        print("Image downloaded from Cloudinary successfully " + urlStr)
-                        do{
-                            DispatchQueue.main.async {
-                                imgViewer.image = responseImage
-                            }
-                        }
-                    }
-            })
-        }
     }
 }

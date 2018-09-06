@@ -33,7 +33,7 @@ class OutsideMealDetailViewController: UIViewController {
             lblOutsideMealPrice.text = price  + " CDN"
             lblOutsideMealDate.text = calculatetimePassed(lastEatenDate: (meal?.lastEatenDate)!)
             imgViewerOutsideMeal.image = #imageLiteral(resourceName: "HolderImage")
-            loadImageForDetail(urlStr: (meal?.photoUrl)!, imgViewer: imgViewerOutsideMeal)
+            CloudinaryClient.setImageAsync(imageView: imgViewerOutsideMeal, imageURL: meal!.photoUrl)
         }
     }
 
@@ -61,27 +61,5 @@ class OutsideMealDetailViewController: UIViewController {
         let dateString = dateComponentsFormatter.string(from: abs(timeInterval!))
         let strDate:String = (dateString?.uppercased())! + " AGO"
         return strDate
-    }
-    
-    private func loadImageForDetail(urlStr: String, imgViewer: UIImageView!) {
-        do {
-            CloudinaryClient.cloudinary.createDownloader().fetchImage(
-                urlStr, // image url
-                nil, // progress handler
-                completionHandler: { // completion handler
-                    (responseImage, error) in
-                    if let error = error {
-                        print("Error downloading image %@", error)
-                    }
-                    else {
-                        print("Image downloaded from Cloudinary successfully " + urlStr)
-                        do{
-                            DispatchQueue.main.async {
-                                imgViewer.image = responseImage
-                            }
-                        }
-                    }
-            })
-        }
     }
 }

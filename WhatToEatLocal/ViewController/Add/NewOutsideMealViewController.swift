@@ -125,6 +125,7 @@ class NewOutsideMealViewController: FormViewController {
             }
         }
     }
+    
     private func submitNewMeal(meal: OutsideMeal, completion:((Error?) -> Void)?){
         let urlComponents = BackendConfig.getUrl(path: "/outsidemeals")
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
@@ -175,12 +176,14 @@ class NewOutsideMealViewController: FormViewController {
     @IBAction func cancelOutsideMeal(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
+    
     func setLastEatenDate() -> String {
         let dateFormatterGet = DateFormatter()
         dateFormatterGet.dateFormat = "yyyy-MM-dd"
         let lastEatenDate = dateFormatterGet.string(from: self.lastEatenDate)
         return lastEatenDate
     }
+    
     func resizeImage(_ image: UIImage) -> UIImage {
         var actualHeight = Float(image.size.height)
         var actualWidth = Float(image.size.width)

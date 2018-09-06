@@ -30,16 +30,16 @@ The main differentiator for this app is, users are free to manage their own favo
 ## Front-End Requirements
 - [x] UI implementation for display all home made meals and navigation to new meal screen.
 - [x] UI implementation for adding a home made meal and navigation to home made meal list screen.
-- [ ] New home made meal screen UI elements need to be placed correctly.
-- [ ] UI implementation for displaying all outside meals and adding a outside meal
-- [ ] Adding date picker and last eaten date property.
+- [x] New home made meal screen UI elements need to be placed correctly.
+- [x] UI implementation for displaying all outside meals and adding a outside meal
+- [x] Adding date picker and last eaten date property.
 - [ ] Tag property implementation.
 - [x] User sign-in screen implementation and adding google sign in delegates.
 - [ ] Edit and Delete a meal implementation.
 - [ ] Create suggestion using tags. e.g. If users pick up a breakfast tag, show breakfast.
 - [ ] Suggestion tab will be implemented.
 - [ ] Explore tab implementation.
-- [ ] Search box implementation for top of home and outside meals screen.
+- [x] Search box implementation for top of home and outside meals screen.
 - [ ] For first login preparation of sample meals and tutorial.
 - [ ] Settings tab implementation.
 - [ ] Logout implementation.

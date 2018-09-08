@@ -722,10 +722,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qJI-sr-brU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="rse-V9-nnt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2557.5999999999999" y="-1039.4302848575712"/>
         </scene>
-        <!--Homemade Meal Edit View Controller-->
+        <!--Edit Homemade Meal-->
         <scene sceneID="a1l-jp-TCG">
             <objects>
                 <viewController id="GYx-hZ-xg7" customClass="HomemadeMealEditViewController" customModule="WhatToEatLocal" customModuleProvider="target" sceneMemberID="viewController">
@@ -735,16 +736,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="fOw-CV-yNz"/>
                     </view>
-                    <navigationItem key="navigationItem" id="OCF-Mc-nHW">
+                    <navigationItem key="navigationItem" title="Edit Homemade Meal" id="OCF-Mc-nHW">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="JNe-Jm-c2h">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="saveBtnEditAction:" destination="GYx-hZ-xg7" id="c1A-KY-lAk"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="saveBtnEdit" destination="JNe-Jm-c2h" id="my4-Zc-AoU"/>
+                        <segue destination="U7u-Hp-pIq" kind="unwind" identifier="unwindSegueToHMealDetail" unwindAction="unwindToHomemadeMealDetailWithSegue:" id="bka-tb-c8D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vez-NA-iES" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="U7u-Hp-pIq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3476" y="-1039.4302848575712"/>
         </scene>

@@ -35,6 +35,10 @@ class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, 
         loadMeals()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        loadMeals()
+    }
+    
     func setup() {
         searchBarTopConstraint.constant = 0.0
         collectionView.addObserver(self, forKeyPath: "contentOffset", options: [.new, .old], context: nil)

@@ -237,7 +237,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="dnE-gh-qyJ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="25"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i73-xO-V27">
@@ -314,28 +314,24 @@
                     <view key="view" contentMode="scaleToFill" id="xvj-tk-QQ4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Yw-UM-cFS">
-                                <rect key="frame" x="77" y="196" width="222" height="76"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="H5S-J8-8lY"/>
                     </view>
                     <navigationItem key="navigationItem" id="aMb-Nv-Z2d">
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="afH-QZ-CRO">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="saveBtnEditActionOM:" destination="8Wr-dF-YvR" id="IHQ-S1-qQv"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="lblOusideMealName" destination="3Yw-UM-cFS" id="NNw-kq-D2U"/>
+                        <outlet property="saveBtnEditOM" destination="afH-QZ-CRO" id="Pfk-us-FTy"/>
+                        <segue destination="f0r-br-IGa" kind="unwind" identifier="unwindToOutsideMealDetailSegue" unwindAction="unwindToOutsideMealDetailWithSegue:" id="2Qk-wB-19I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0l-tk-QIT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="f0r-br-IGa" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3493.5999999999999" y="1032.2338830584708"/>
         </scene>
@@ -722,7 +718,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qJI-sr-brU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="rse-V9-nnt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2557.5999999999999" y="-1039.4302848575712"/>
         </scene>

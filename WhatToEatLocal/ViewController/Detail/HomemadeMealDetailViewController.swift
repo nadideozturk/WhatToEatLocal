@@ -45,6 +45,11 @@ class HomemadeMealDetailViewController: UIViewController {
     
     @IBAction func unwindToHomemadeMealDetail(segue:UIStoryboardSegue) {
         loadHomemadeMealById()
+        if (self.meal == nil) {
+            // Delete use case, go back to list homemade meals screen
+            _ = navigationController?.popViewController(animated: false)
+            _ = navigationController?.popViewController(animated: false)
+        }
     }
 
     // MARK: - Private Functions
@@ -74,7 +79,11 @@ class HomemadeMealDetailViewController: UIViewController {
         let strDate:String = (dateString?.uppercased())! + " AGO"
         return strDate
     }
+    
     func loadHomemadeMealById() {
+        if (meal == nil) {
+            return
+        }
         let urlComponents = BackendConfig.getUrl(path: "/homemademeals/" + meal!.id)
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
         // Specify this request as being a GET method

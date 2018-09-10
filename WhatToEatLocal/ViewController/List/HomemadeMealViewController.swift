@@ -31,8 +31,6 @@ class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, 
         collectionView.delegate = self
         searchBar.delegate = self
         setup()
-        
-        loadMeals()
     }
     
     override func viewDidAppear(_ animated: Bool) {

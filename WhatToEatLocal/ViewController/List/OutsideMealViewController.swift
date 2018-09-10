@@ -31,8 +31,6 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource, U
         collectionView.delegate = self
         searchBar.delegate = self
         setup()
-        
-        loadMeals()
     }
     
     override func viewDidAppear(_ animated: Bool) {

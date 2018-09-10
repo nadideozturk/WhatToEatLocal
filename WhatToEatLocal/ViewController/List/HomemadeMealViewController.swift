@@ -149,7 +149,7 @@ class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
-        loadMeals()
+        
     }
     
     // MARK: UISearchBar

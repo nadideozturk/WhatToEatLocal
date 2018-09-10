@@ -149,7 +149,7 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     @IBAction func unwindToOutsideMealList(sender: UIStoryboardSegue) {
-        loadMeals()
+        
     }
     
     // MARK: UISearchBar

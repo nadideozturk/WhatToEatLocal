@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import os.log
 
-class OutsideMeal:Decodable, Encodable {
+class OutsideMeal:Decodable, Encodable, Equatable {
     
     //MARK: Propeties
     var id: String
@@ -32,5 +31,15 @@ class OutsideMeal:Decodable, Encodable {
         self.lastEatenDate = lastEatenDate
         self.restaurantName = restaurantName
         self.photoContent = photoContent
+    }
+    
+    static func == (lhs: OutsideMeal, rhs: OutsideMeal) -> Bool {
+        return lhs.id == rhs.id &&
+            lhs.name == rhs.name &&
+            lhs.photoUrl == rhs.photoUrl &&
+            lhs.price == rhs.price &&
+            lhs.lastEatenDate == rhs.lastEatenDate &&
+            lhs.restaurantName == rhs.restaurantName &&
+            lhs.photoContent == rhs.photoContent
     }
 }

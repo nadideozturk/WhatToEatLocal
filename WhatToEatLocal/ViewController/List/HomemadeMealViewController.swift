@@ -86,6 +86,13 @@ class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, 
         self.performSegue(withIdentifier: "showHomemadeMealDetailsSegue", sender: cell)
     }
     
+    func reloadCollectionViewIfDataChanged(homeMadeMealList: [HomemadeMeal]) {
+        if (homeMadeMealList != self.homemadeMeals) {
+            self.homemadeMeals = homeMadeMealList
+            self.collectionView.reloadData()
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showHomemadeMealDetailsSegue" {
             let detailsVC: HomemadeMealDetailViewController = segue.destination as! HomemadeMealDetailViewController
@@ -125,9 +132,9 @@ class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, 
                     return
                 }
                 do {
-                    self.homemadeMeals = try JSONDecoder().decode([HomemadeMeal].self, from: data)
+                    let homeMadeMealList = try JSONDecoder().decode([HomemadeMeal].self, from: data)
                     DispatchQueue.main.async {
-                        self.collectionView.reloadData()
+                        self.reloadCollectionViewIfDataChanged(homeMadeMealList: homeMadeMealList)
                     }
                     return
                 } catch let jsonErr {

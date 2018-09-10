@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class HomemadeMeal:Decodable, Encodable {
+class HomemadeMeal:Decodable, Encodable, Equatable {
     
      //MARK: Propeties
     var id: String
@@ -30,5 +30,14 @@ class HomemadeMeal:Decodable, Encodable {
         self.durationInMinutes = durationInMinutes
         self.lastEatenDate = lastEatenDate
         self.photoContent = photoContent
+    }
+    
+    static func == (lhs: HomemadeMeal, rhs: HomemadeMeal) -> Bool {
+        return lhs.id == rhs.id &&
+        lhs.name == rhs.name &&
+        lhs.photoUrl == rhs.photoUrl &&
+        lhs.durationInMinutes == rhs.durationInMinutes &&
+        lhs.lastEatenDate == rhs.lastEatenDate &&
+        lhs.photoContent == rhs.photoContent
     }
 }

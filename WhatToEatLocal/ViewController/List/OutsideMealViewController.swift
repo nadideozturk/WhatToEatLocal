@@ -86,6 +86,13 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource, U
         self.performSegue(withIdentifier: "showOutsideMealDetailSegue", sender: cell)
     }
     
+    func reloadCollectionViewIfDataChanged(outsideMealList: [OutsideMeal]) {
+        if (outsideMealList != self.outsideMeals) {
+            self.outsideMeals = outsideMealList
+            self.collectionView.reloadData()
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showOutsideMealDetailSegue" {
             let detailsVC: OutsideMealDetailViewController = segue.destination as! OutsideMealDetailViewController
@@ -125,9 +132,9 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource, U
                     return
                 }
                 do {
-                    self.outsideMeals = try JSONDecoder().decode([OutsideMeal].self, from: data)
+                    let outsideMealList = try JSONDecoder().decode([OutsideMeal].self, from: data)
                     DispatchQueue.main.async {
-                        self.collectionView.reloadData()
+                        self.reloadCollectionViewIfDataChanged(outsideMealList: outsideMealList)
                     }
                     return
                 } catch let jsonErr {

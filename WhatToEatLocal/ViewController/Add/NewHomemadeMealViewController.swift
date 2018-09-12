@@ -17,6 +17,7 @@ class NewHomemadeMealViewController: FormViewController, UINavigationControllerD
     // MARK: Properties
     @IBOutlet weak var saveButton: UIBarButtonItem!
     var hmMeallastEatenDate = Date()
+    var category:String? = nil
     
     func updateSaveButtonEnabled() {
         saveButton.isEnabled = self.form.isValid()
@@ -65,6 +66,19 @@ class NewHomemadeMealViewController: FormViewController, UINavigationControllerD
                     }
                     self.updateSaveButtonEnabled()
             }
+            <<< ActionSheetRow<String>() { row in
+                row.title = "Category"
+                row.selectorTitle = "Choose a category"
+                row.options = Array(MealCategory.mealCategory.keys)
+                row.add(rule: RuleRequired())
+                }
+                .onPresent { from, to in
+                    to.popoverPresentationController?.permittedArrowDirections = .up
+            }
+                .onChange({ (row) in
+                    self.category = row.value!
+                    self.updateSaveButtonEnabled()
+                })
             <<< DateRow(){ row in
                 row.title = "Last eaten date"
                 row.minimumDate = Calendar.current.date(byAdding: .year, value: -5, to: Date())!
@@ -108,8 +122,8 @@ class NewHomemadeMealViewController: FormViewController, UINavigationControllerD
         let strLastEatenDate = setLastEatenDate()
         let durInMinRow: IntRow? = form.rowBy(tag: "durInMin")
         let intDurationInMin = durInMinRow?.value
-        
-        let newMeal = HomemadeMeal(id: "", name: name!, photoUrl: " ", durationInMinutes:intDurationInMin!,lastEatenDate: strLastEatenDate, photoContent: imageBase64 )
+        let catId: String = MealCategory.mealCategory[category!]!
+        let newMeal = HomemadeMeal(id: "", name: name!, photoUrl: " ", durationInMinutes:intDurationInMin!,lastEatenDate: strLastEatenDate, photoContent: imageBase64, catId: catId)
         submitNewMeal(meal: newMeal!) { (error) in
             if let error = error {
                 fatalError(error.localizedDescription)

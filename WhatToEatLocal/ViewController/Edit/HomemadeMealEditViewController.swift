@@ -19,6 +19,7 @@ class HomemadeMealEditViewController: FormViewController {
     var hmMeallastEatenDate = Date()
     var imageUpdatedByUser:Bool = false
     var imageUpdatedInitially:Bool = false
+    var category:String? = nil
     
     @IBOutlet weak var saveBtnEdit: UIBarButtonItem!
 
@@ -80,6 +81,20 @@ class HomemadeMealEditViewController: FormViewController {
                     }
                     self.updateSaveButtonEnabled()
             }
+            <<< ActionSheetRow<String>() { row in
+                row.title = "Category"
+                row.value = MealCategory.mealCategory.someKey(forValue: (meal?.catId)!)
+                row.selectorTitle = "Choose a category"
+                row.options = Array(MealCategory.mealCategory.keys)
+                row.add(rule: RuleRequired())
+                }
+                .onPresent { from, to in
+                    to.popoverPresentationController?.permittedArrowDirections = .up
+                }
+                .onChange({ (row) in
+                    self.category = row.value!
+                    self.updateSaveButtonEnabled()
+                })
             <<< DateRow(){ row in
                 row.title = "Last eaten date"
                 row.minimumDate = Calendar.current.date(byAdding: .year, value: -5, to: Date())!
@@ -124,13 +139,14 @@ class HomemadeMealEditViewController: FormViewController {
         let durInMinRow: IntRow? = form.rowBy(tag: "durInMin")
         let intDurationInMin = durInMinRow?.value
         var imageBase64:String = "Empty"
+        let catId: String = MealCategory.mealCategory[category!]!
         if(imageUpdatedByUser){
             let selectedImage = values["homemadeMealImage"] as? UIImage
             let resizedImage = resizeImage(selectedImage!)
             let imageData:NSData = UIImagePNGRepresentation(resizedImage)! as NSData
             imageBase64 = "data:image/jpeg;base64," + imageData.base64EncodedString()
         }
-        editedMeal = HomemadeMeal(id: (meal?.id)!, name: name!, photoUrl: (meal?.photoUrl)!, durationInMinutes:intDurationInMin!,lastEatenDate: strLastEatenDate, photoContent: imageBase64 )
+        editedMeal = HomemadeMeal(id: (meal?.id)!, name: name!, photoUrl: (meal?.photoUrl)!, durationInMinutes:intDurationInMin!,lastEatenDate: strLastEatenDate, photoContent: imageBase64, catId: catId )
         submitEditedMeal(meal: editedMeal!) { (error) in
             if let error = error {
                 fatalError(error.localizedDescription)

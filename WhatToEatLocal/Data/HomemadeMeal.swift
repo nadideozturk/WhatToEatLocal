@@ -18,8 +18,9 @@ class HomemadeMeal:Decodable, Encodable, Equatable {
     var durationInMinutes: Int
     var lastEatenDate: String
     var photoContent: String
+    var catId: String
     //MARK: Initialization
-    init?(id: String, name: String, photoUrl: String, durationInMinutes: Int, lastEatenDate: String, photoContent: String){
+    init?(id: String, name: String, photoUrl: String, durationInMinutes: Int, lastEatenDate: String, photoContent: String, catId: String){
         //The name must not be empty
         guard !name.isEmpty else {
             return nil
@@ -30,6 +31,7 @@ class HomemadeMeal:Decodable, Encodable, Equatable {
         self.durationInMinutes = durationInMinutes
         self.lastEatenDate = lastEatenDate
         self.photoContent = photoContent
+        self.catId = catId
     }
     
     static func == (lhs: HomemadeMeal, rhs: HomemadeMeal) -> Bool {
@@ -38,6 +40,7 @@ class HomemadeMeal:Decodable, Encodable, Equatable {
         lhs.photoUrl == rhs.photoUrl &&
         lhs.durationInMinutes == rhs.durationInMinutes &&
         lhs.lastEatenDate == rhs.lastEatenDate &&
-        lhs.photoContent == rhs.photoContent
+        lhs.photoContent == rhs.photoContent &&
+        lhs.catId == rhs.catId
     }
 }

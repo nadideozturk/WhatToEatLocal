@@ -18,6 +18,7 @@ class OutsideMealEditViewController: FormViewController {
     var outsideMeallastEatenDate = Date()
     var imageUpdatedByUser:Bool = false
     var imageUpdatedInitially:Bool = false
+    var category:String? = nil
     
     @IBOutlet weak var saveBtnEditOM: UIBarButtonItem!
     
@@ -92,6 +93,20 @@ class OutsideMealEditViewController: FormViewController {
                     }
                     self.updateSaveButtonEnabled()
             }
+            <<< ActionSheetRow<String>() { row in
+                row.title = "Category"
+                row.value = MealCategory.mealCategory.someKey(forValue: (meal?.catId)!)
+                row.selectorTitle = "Choose a category"
+                row.options = Array(MealCategory.mealCategory.keys)
+                row.add(rule: RuleRequired())
+                }
+                .onPresent { from, to in
+                    to.popoverPresentationController?.permittedArrowDirections = .up
+                }
+                .onChange({ (row) in
+                    self.category = row.value!
+                    self.updateSaveButtonEnabled()
+                })
             <<< DateRow(){ row in
                 row.title = "Last eaten date"
                 row.minimumDate = Calendar.current.date(byAdding: .year, value: -5, to: Date())!
@@ -143,7 +158,8 @@ class OutsideMealEditViewController: FormViewController {
         let price = priceRow?.value
         let resRow: TextRow? = form.rowBy(tag: "restaurantName")
         let restaurantName = resRow?.value
-        let newMeal = OutsideMeal(id: (meal?.id)!, name: name!, photoUrl: (meal?.photoUrl)!, price: price!, lastEatenDate: strLastEatenDate, restaurantName: restaurantName!, photoContent: imageBase64)
+        let catId: String = MealCategory.mealCategory[self.category!]!
+        let newMeal = OutsideMeal(id: (meal?.id)!, name: name!, photoUrl: (meal?.photoUrl)!, price: price!, lastEatenDate: strLastEatenDate, restaurantName: restaurantName!, photoContent: imageBase64, catId: catId)
         submitEditedOutsideMeal(meal: newMeal!) { (error) in
             if let error = error {
                 fatalError(error.localizedDescription)

@@ -18,8 +18,9 @@ class OutsideMeal:Decodable, Encodable, Equatable {
     var lastEatenDate: String
     var restaurantName: String
     var photoContent: String
+    var catId: String
     //MARK: Initialization
-    init?(id: String, name: String, photoUrl: String, price: Double, lastEatenDate: String, restaurantName: String, photoContent: String){
+    init?(id: String, name: String, photoUrl: String, price: Double, lastEatenDate: String, restaurantName: String, photoContent: String, catId: String){
         //The name must not be empty
         guard !name.isEmpty else {
             return nil
@@ -31,6 +32,7 @@ class OutsideMeal:Decodable, Encodable, Equatable {
         self.lastEatenDate = lastEatenDate
         self.restaurantName = restaurantName
         self.photoContent = photoContent
+        self.catId = catId
     }
     
     static func == (lhs: OutsideMeal, rhs: OutsideMeal) -> Bool {
@@ -40,6 +42,7 @@ class OutsideMeal:Decodable, Encodable, Equatable {
             lhs.price == rhs.price &&
             lhs.lastEatenDate == rhs.lastEatenDate &&
             lhs.restaurantName == rhs.restaurantName &&
-            lhs.photoContent == rhs.photoContent
+            lhs.photoContent == rhs.photoContent &&
+            lhs.catId == rhs.catId
     }
 }

@@ -89,6 +89,7 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource, U
     func reloadCollectionViewIfDataChanged(outsideMealList: [OutsideMeal]) {
         if (outsideMealList != self.outsideMeals) {
             self.outsideMeals = outsideMealList
+            sortMeals()
             self.collectionView.reloadData()
         }
     }
@@ -103,6 +104,12 @@ class OutsideMealViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     // MARK: Private methods
+    
+    private func sortMeals() {
+        self.outsideMeals = outsideMeals.sorted(by: {
+            $0.lastEatenDate.compare($1.lastEatenDate) == .orderedDescending
+        })
+    }
     
     private func loadMeals(){
         let urlComponents = BackendConfig.getUrl(path: "/outsidemeals")

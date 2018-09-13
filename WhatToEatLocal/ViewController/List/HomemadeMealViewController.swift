@@ -89,6 +89,7 @@ class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, 
     func reloadCollectionViewIfDataChanged(homeMadeMealList: [HomemadeMeal]) {
         if (homeMadeMealList != self.homemadeMeals) {
             self.homemadeMeals = homeMadeMealList
+            sortMeals()
             self.collectionView.reloadData()
         }
     }
@@ -103,6 +104,27 @@ class HomemadeMealViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     // MARK: Private methods
+    
+    private func sortMeals(){
+        self.homemadeMeals = homemadeMeals.sorted(by: {
+            $0.lastEatenDate.compare($1.lastEatenDate) == .orderedDescending
+        })
+    }
+    
+    func setLastEatenDate(date: Date) -> String {
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd"
+        let lastEatenDate = dateFormatterGet.string(from: date)
+        return lastEatenDate
+    }
+    
+    
+    func getLastEatenDateFromStr(strDate: String) -> Date {
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd"
+        let lastEatenDate = dateFormatterGet.date(from: strDate)
+        return lastEatenDate!
+    }
     
     private func loadMeals(){
         let urlComponents = BackendConfig.getUrl(path: "/homemademeals")

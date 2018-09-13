@@ -18,8 +18,7 @@
 		8B28221A208FF2CE0058A6BC /* OutsideMealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B282219208FF2CE0058A6BC /* OutsideMealCollectionViewCell.swift */; };
 		8B28221C208FF93C0058A6BC /* OutsideMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B28221B208FF93C0058A6BC /* OutsideMeal.swift */; };
 		8B2D70AE202A5BDF00404F8C /* HomemadeMealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2D70AD202A5BDF00404F8C /* HomemadeMealCollectionViewCell.swift */; };
-		8B38D729214837D0005154A2 /* HomemadeMealCategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B38D728214837D0005154A2 /* HomemadeMealCategoryListViewController.swift */; };
-		8B38D72B214853D5005154A2 /* MealCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B38D72A214853D5005154A2 /* MealCategory.swift */; };
+		8B38D72B214853D5005154A2 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B38D72A214853D5005154A2 /* Category.swift */; };
 		8B66D5AF208EE0D1006F41EE /* BackendConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B66D5AE208EE0D1006F41EE /* BackendConfig.swift */; };
 		8B6BBEFD2037F1570073C017 /* AutoSigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6BBEFC2037F1570073C017 /* AutoSigninViewController.swift */; };
 		8B74812A2140C09B00036A64 /* CloudinaryClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7481292140C09B00036A64 /* CloudinaryClient.swift */; };
@@ -59,8 +58,7 @@
 		8B282219208FF2CE0058A6BC /* OutsideMealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutsideMealCollectionViewCell.swift; sourceTree = "<group>"; };
 		8B28221B208FF93C0058A6BC /* OutsideMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutsideMeal.swift; sourceTree = "<group>"; };
 		8B2D70AD202A5BDF00404F8C /* HomemadeMealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomemadeMealCollectionViewCell.swift; sourceTree = "<group>"; };
-		8B38D728214837D0005154A2 /* HomemadeMealCategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomemadeMealCategoryListViewController.swift; sourceTree = "<group>"; };
-		8B38D72A214853D5005154A2 /* MealCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCategory.swift; sourceTree = "<group>"; };
+		8B38D72A214853D5005154A2 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		8B66D5AE208EE0D1006F41EE /* BackendConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendConfig.swift; sourceTree = "<group>"; };
 		8B6BBEFC2037F1570073C017 /* AutoSigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSigninViewController.swift; sourceTree = "<group>"; };
 		8B7481292140C09B00036A64 /* CloudinaryClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudinaryClient.swift; sourceTree = "<group>"; };
@@ -122,18 +120,9 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8B38D72721483696005154A2 /* CategoryList */ = {
-			isa = PBXGroup;
-			children = (
-				8B38D728214837D0005154A2 /* HomemadeMealCategoryListViewController.swift */,
-			);
-			path = CategoryList;
-			sourceTree = "<group>";
-		};
 		8BC4233E213D01A400DCBD9D /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				8B38D72721483696005154A2 /* CategoryList */,
 				8BC42346213D02D800DCBD9D /* Login */,
 				8BC42344213D022E00DCBD9D /* Edit */,
 				8BC42343213D022700DCBD9D /* Add */,
@@ -148,7 +137,7 @@
 			children = (
 				8B129B87201D2B6E000FDD00 /* HomemadeMeal.swift */,
 				8B28221B208FF93C0058A6BC /* OutsideMeal.swift */,
-				8B38D72A214853D5005154A2 /* MealCategory.swift */,
+				8B38D72A214853D5005154A2 /* Category.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -458,7 +447,7 @@
 			files = (
 				8BBE0FA42034EEF4008FCC2F /* SignInViewController.swift in Sources */,
 				8B6BBEFD2037F1570073C017 /* AutoSigninViewController.swift in Sources */,
-				8B38D72B214853D5005154A2 /* MealCategory.swift in Sources */,
+				8B38D72B214853D5005154A2 /* Category.swift in Sources */,
 				8B129B88201D2B6E000FDD00 /* HomemadeMeal.swift in Sources */,
 				8B28221C208FF93C0058A6BC /* OutsideMeal.swift in Sources */,
 				8B28221A208FF2CE0058A6BC /* OutsideMealCollectionViewCell.swift in Sources */,
@@ -470,7 +459,6 @@
 				8B74812A2140C09B00036A64 /* CloudinaryClient.swift in Sources */,
 				8B2D70AE202A5BDF00404F8C /* HomemadeMealCollectionViewCell.swift in Sources */,
 				8B02CF0E202B71D200EAB35C /* NewHomemadeMealViewController.swift in Sources */,
-				8B38D729214837D0005154A2 /* HomemadeMealCategoryListViewController.swift in Sources */,
 				8BC5D901200B3500008C7C90 /* AppDelegate.swift in Sources */,
 				8BF7C14C20A65BBE005964D4 /* NewOutsideMealViewController.swift in Sources */,
 				8B258B5D212FD5DA00A6736D /* HomemadeMealEditViewController.swift in Sources */,

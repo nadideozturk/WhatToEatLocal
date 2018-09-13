@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MealCategory {
+class Category {
     public static let mealCategory: [String: String] = ["Breakfast": "1",
                                                   "Main Dish": "2",
                                                   "Side": "3",

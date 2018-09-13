@@ -82,7 +82,7 @@ class NewOutsideMealViewController: FormViewController {
             <<< ActionSheetRow<String>() { row in
                 row.title = "Category"
                 row.selectorTitle = "Choose a category"
-                row.options = Array(MealCategory.mealCategory.keys)
+                row.options = Array(Category.mealCategory.keys)
                 row.add(rule: RuleRequired())
                 }
                 .onPresent { from, to in
@@ -132,7 +132,7 @@ class NewOutsideMealViewController: FormViewController {
         let price = priceRow?.value
         let resRow: TextRow? = form.rowBy(tag: "restaurantName")
         let restaurantName = resRow?.value
-        let catId: String = MealCategory.mealCategory[self.category!]!
+        let catId: String = Category.mealCategory[self.category!]!
         let newMeal = OutsideMeal(id: "", name: name!, photoUrl: " ", price: price!, lastEatenDate: strLastEatenDate, restaurantName: restaurantName!, photoContent: imageBase64, catId: catId)
         submitNewMeal(meal: newMeal!) { (error) in
             if let error = error {

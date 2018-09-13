@@ -83,9 +83,9 @@ class HomemadeMealEditViewController: FormViewController {
             }
             <<< ActionSheetRow<String>() { row in
                 row.title = "Category"
-                row.value = MealCategory.mealCategory.someKey(forValue: (meal?.catId)!)
+                row.value = Category.mealCategory.someKey(forValue: (meal?.catId)!)
                 row.selectorTitle = "Choose a category"
-                row.options = Array(MealCategory.mealCategory.keys)
+                row.options = Array(Category.mealCategory.keys)
                 row.add(rule: RuleRequired())
                 }
                 .onPresent { from, to in
@@ -139,7 +139,7 @@ class HomemadeMealEditViewController: FormViewController {
         let durInMinRow: IntRow? = form.rowBy(tag: "durInMin")
         let intDurationInMin = durInMinRow?.value
         var imageBase64:String = "Empty"
-        let catId: String = MealCategory.mealCategory[category!]!
+        let catId: String = Category.mealCategory[category!]!
         if(imageUpdatedByUser){
             let selectedImage = values["homemadeMealImage"] as? UIImage
             let resizedImage = resizeImage(selectedImage!)

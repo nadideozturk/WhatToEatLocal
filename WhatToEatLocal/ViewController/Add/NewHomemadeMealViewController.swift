@@ -69,7 +69,7 @@ class NewHomemadeMealViewController: FormViewController, UINavigationControllerD
             <<< ActionSheetRow<String>() { row in
                 row.title = "Category"
                 row.selectorTitle = "Choose a category"
-                row.options = Array(MealCategory.mealCategory.keys)
+                row.options = Array(Category.mealCategory.keys)
                 row.add(rule: RuleRequired())
                 }
                 .onPresent { from, to in
@@ -122,7 +122,7 @@ class NewHomemadeMealViewController: FormViewController, UINavigationControllerD
         let strLastEatenDate = setLastEatenDate()
         let durInMinRow: IntRow? = form.rowBy(tag: "durInMin")
         let intDurationInMin = durInMinRow?.value
-        let catId: String = MealCategory.mealCategory[category!]!
+        let catId: String = Category.mealCategory[category!]!
         let newMeal = HomemadeMeal(id: "", name: name!, photoUrl: " ", durationInMinutes:intDurationInMin!,lastEatenDate: strLastEatenDate, photoContent: imageBase64, catId: catId)
         submitNewMeal(meal: newMeal!) { (error) in
             if let error = error {

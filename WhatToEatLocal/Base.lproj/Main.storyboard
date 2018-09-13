@@ -434,7 +434,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tVL-E0-R9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-785" y="-355"/>
+            <point key="canvasLocation" x="-1009" y="-358"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -460,7 +460,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-337" y="0.0"/>
         </scene>
         <!--New Meal-->
         <scene sceneID="eXb-HB-EpR">
@@ -494,22 +494,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4kN-hg-lgZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="tES-2t-bwc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2558" y="-356"/>
-        </scene>
-        <!--Homemade Meal Category List View Controller-->
-        <scene sceneID="0WI-rM-BNs">
-            <objects>
-                <viewController id="Btg-bG-G11" customClass="HomemadeMealCategoryListViewController" customModule="WhatToEatLocal" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="a6e-lC-tcA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="NKp-lL-hVh"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="chh-AK-RHi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="232" y="-722"/>
+            <point key="canvasLocation" x="2238" y="-340"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FN9-BO-WvL">
@@ -531,12 +516,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="zdl-wK-b6d" kind="relationship" relationship="rootViewController" id="hTk-mC-SVc"/>
+                        <segue destination="zdl-wK-b6d" kind="relationship" relationship="rootViewController" id="uh0-Mx-Zti"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vS-C5-dYU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="961" y="-356"/>
+            <point key="canvasLocation" x="481" y="-340"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c3Q-6u-LoB">
@@ -560,7 +545,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8og-Ix-pZT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="960.79999999999995" y="328.78560719640183"/>
+            <point key="canvasLocation" x="842" y="329"/>
         </scene>
         <!--HOMEMADE MEALS-->
         <scene sceneID="NrP-Rr-fkj">
@@ -651,7 +636,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RRw-uI-nB2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1780" y="-357.57121439280365"/>
+            <point key="canvasLocation" x="1322" y="-358"/>
         </scene>
         <!--Homemade Meal Detail-->
         <scene sceneID="aWK-pu-QGE">
@@ -734,7 +719,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qJI-sr-brU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2557.5999999999999" y="-1039.4302848575712"/>
+            <point key="canvasLocation" x="2150" y="-1030"/>
         </scene>
         <!--Edit Homemade Meal-->
         <scene sceneID="a1l-jp-TCG">
@@ -762,7 +747,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vez-NA-iES" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="U7u-Hp-pIq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3476" y="-1039.4302848575712"/>
+            <point key="canvasLocation" x="3042" y="-1030"/>
         </scene>
     </scenes>
     <resources>
